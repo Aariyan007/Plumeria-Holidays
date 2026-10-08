@@ -18,3 +18,12 @@ test("isLowEndDevice", () => {
   expect(isLowEndDevice({ hardwareConcurrency: 8, deviceMemory: 8 } as unknown as Navigator)).toBe(false);
   expect(isLowEndDevice({ hardwareConcurrency: 8 } as unknown as Navigator)).toBe(false);
 });
+
+import { routeThrough } from "@/components/motion/keralaPath";
+test("routeThrough", () => {
+  expect(routeThrough([{ x: 0, y: 0 }])).toBe("");
+  const d = routeThrough([{ x: 0, y: 0 }, { x: 10, y: 20 }, { x: 30, y: 40 }]);
+  expect(d.startsWith("M0 0")).toBe(true);
+  expect(d.match(/C/g)?.length).toBe(2);
+  expect(d.endsWith("30 40")).toBe(true);
+});
