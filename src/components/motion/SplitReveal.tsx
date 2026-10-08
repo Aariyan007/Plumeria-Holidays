@@ -11,7 +11,7 @@ export function SplitReveal({ as = "h2", className, children, immediate = false 
   useGSAP(() => {
     if (prefersReducedMotion()) return;
     const split = SplitText.create(ref.current!, {
-      type: "lines,words", mask: "lines", autoSplit: true,
+      type: "lines,words", mask: "lines", linesClass: "split-line", autoSplit: true,
       onSplit: (self) => gsap.from(self.words, {
         yPercent: 110, duration: 0.9, ease: "expo.out", stagger: 0.04,
         scrollTrigger: immediate ? undefined : { trigger: ref.current, start: "top 85%" },

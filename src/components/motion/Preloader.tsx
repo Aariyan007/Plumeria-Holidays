@@ -25,7 +25,7 @@ export function Preloader() {
     const release = () => { delete html.dataset.loading; html.style.overflow = ""; getLenis()?.start(); };
     const counter = { v: 0 };
     const num = root.current!.querySelector<HTMLElement>(".pl-count")!;
-    const split = SplitText.create(".pl-word", { type: "chars", mask: "chars" });
+    const split = SplitText.create(".pl-word", { type: "chars", mask: "chars", charsClass: "split-char" });
 
     const tl = gsap.timeline({ onComplete: () => { release(); done(); } });
     tl.set(".pl-flower", { rotate: -40, scale: 0.6 })
