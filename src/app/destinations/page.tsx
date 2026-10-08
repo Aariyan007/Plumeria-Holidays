@@ -16,7 +16,7 @@ export default function DestinationsPage() {
       <SectionHeading kicker="Destinations" title="Every journey starts with a place" />
       {groups.map((g) => (
         <section key={g.label} className="mt-20">
-          <h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-coral-dark">{g.label}</h2>
+          <h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-pink-dark">{g.label}</h2>
           <Reveal className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {g.items.map((d) => (
               <Link key={d.slug} href={`/destinations/${d.slug}`} className="group" data-cursor>

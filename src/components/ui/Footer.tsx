@@ -12,12 +12,12 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-cream/70">{site.tagline}. Tailor-made journeys from Kochi to the world.</p>
         </div>
         <div>
-          <h3 className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Explore</h3>
-          {site.nav.map((n) => <Link key={n.href} href={n.href} className="block py-1 text-cream/80 hover:text-coral">{n.label}</Link>)}
-          <a href={site.paymentUrl} target="_blank" rel="noopener noreferrer" className="block py-1 text-cream/80 hover:text-coral">Make a payment</a>
+          <h3 className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow">Explore</h3>
+          {site.nav.map((n) => <Link key={n.href} href={n.href} className="block py-1 text-cream/80 hover:text-pink">{n.label}</Link>)}
+          <a href={site.paymentUrl} target="_blank" rel="noopener noreferrer" className="block py-1 text-cream/80 hover:text-pink">Make a payment</a>
         </div>
         <div>
-          <h3 className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">Talk to us</h3>
+          <h3 className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow">Talk to us</h3>
           <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="block py-1">{site.phone}</a>
           <a href={`mailto:${site.email}`} className="block break-all py-1">{site.email}</a>
           <p className="mt-4 text-sm text-cream/60">{getOffices().map((o) => o.city).join(" · ")}</p>

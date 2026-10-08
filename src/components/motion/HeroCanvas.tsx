@@ -89,7 +89,7 @@ function makeSeeds(count: number) {
   }));
 }
 
-const PETAL_COLORS = ["#F9E27D", "#ffffff", "#F7A49B"];
+const PETAL_COLORS = ["#F7C548", "#ffffff", "#F9C6D7"];
 
 function Petals({ count }: { count: number }) {
   const mesh = useRef<THREE.InstancedMesh>(null);
@@ -139,7 +139,7 @@ export default function HeroCanvas({ images, progress, container, petals }: Prop
       dpr={[1, 1.5]}
       gl={{ antialias: false, powerPreference: "high-performance" }}
       camera={{ position: [0, 0, 6], fov: 50 }}
-      onCreated={({ gl }) => gl.setClearColor("#0F4C4A")}
+      onCreated={({ gl }) => gl.setClearColor("#5B1A3A")}
       style={{ position: "absolute", inset: 0 }}
     >
       <LoopControl container={container} />

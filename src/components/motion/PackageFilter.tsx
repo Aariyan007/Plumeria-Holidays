@@ -30,7 +30,7 @@ export function PackageFilter({ packages, types, initialType }:
   }, [visible]);
 
   const chip = (active: boolean) =>
-    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-teal bg-teal text-cream" : "border-ink/20 hover:border-teal"}`;
+    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-plum bg-plum text-cream" : "border-ink/20 hover:border-plum"}`;
 
   return (
     <div>
@@ -52,7 +52,7 @@ export function PackageFilter({ packages, types, initialType }:
         {visible.map((p) => <PackageCard key={p.slug} pkg={p} />)}
       </div>
       {visible.length === 0 && (
-        <p className="mt-8 text-lg">No packages match yet. <a href="/contact" className="text-coral-dark underline">Ask us to build one for you.</a></p>
+        <p className="mt-8 text-lg">No packages match yet. <a href="/contact" className="text-pink-dark underline">Ask us to build one for you.</a></p>
       )}
     </div>
   );

@@ -26,27 +26,27 @@ export function KeralaMap({ stops }: { stops: Destination[] }) {
   }, { scope: root });
 
   return (
-    <section ref={root} className="grid min-h-svh items-center gap-10 bg-green px-6 py-24 text-cream md:grid-cols-2 md:px-16" aria-label="Kerala route map">
+    <section ref={root} className="grid min-h-svh items-center gap-10 bg-leaf px-6 py-24 text-cream md:grid-cols-2 md:px-16" aria-label="Kerala route map">
       <svg viewBox="0 0 400 800" className="mx-auto h-[60svh] w-auto md:h-[75svh]" role="img" aria-label="Map of Kerala with our classic route">
-        <path className="km-outline" d={KERALA_OUTLINE} fill="#FBF6EC" fillOpacity="0.06" stroke="#FBF6EC" strokeOpacity="0.6" strokeWidth="2" />
-        <path className="km-route" d={route} fill="none" stroke="#E8B04B" strokeWidth="3" strokeLinecap="round" />
+        <path className="km-outline" d={KERALA_OUTLINE} fill="#FFF8F0" fillOpacity="0.06" stroke="#FFF8F0" strokeOpacity="0.6" strokeWidth="2" />
+        <path className="km-route" d={route} fill="none" stroke="#F7C548" strokeWidth="3" strokeLinecap="round" />
         {stops.map((s, i) => (
           <g key={s.slug} data-pin={i}>
-            <circle cx={s.map!.x} cy={s.map!.y} r="16" fill="none" stroke="#F2766B" strokeOpacity="0.6" />
-            <circle cx={s.map!.x} cy={s.map!.y} r="8" fill="#F2766B" />
-            <text x={s.map!.x + 22} y={s.map!.y + 6} fill="#FBF6EC" fontSize="20" style={{ fontFamily: "var(--font-display)" }}>{s.name}</text>
+            <circle cx={s.map!.x} cy={s.map!.y} r="16" fill="none" stroke="#EC5B8C" strokeOpacity="0.6" />
+            <circle cx={s.map!.x} cy={s.map!.y} r="8" fill="#EC5B8C" />
+            <text x={s.map!.x + 22} y={s.map!.y + 6} fill="#FFF8F0" fontSize="20" style={{ fontFamily: "var(--font-display)" }}>{s.name}</text>
           </g>
         ))}
       </svg>
       <div>
-        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold">The Kerala circuit</p>
+        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow">The Kerala circuit</p>
         <h2 className="font-display text-4xl md:text-6xl">From the hills to the sea, in one journey</h2>
         <ol className="mt-10 space-y-4">
           {stops.map((s, i) => (
             <li key={s.slug} data-stop={i}>
               <Link href={`/destinations/${s.slug}`} className="group flex flex-wrap items-baseline gap-x-4" data-cursor>
-                <span className="text-sm text-gold">0{i + 1}</span>
-                <span className="font-display text-2xl group-hover:text-gold">{s.name}</span>
+                <span className="text-sm text-yellow">0{i + 1}</span>
+                <span className="font-display text-2xl group-hover:text-yellow">{s.name}</span>
                 <span className="text-sm text-cream/75">{s.tagline}</span>
               </Link>
             </li>

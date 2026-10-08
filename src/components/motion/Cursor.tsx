@@ -21,6 +21,6 @@ export function Cursor() {
   });
   return (
     <div ref={dot} aria-hidden
-      className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-3 w-3 -ml-1.5 -mt-1.5 rounded-full bg-coral mix-blend-multiply" />
+      className="pointer-events-none fixed left-0 top-0 z-[100] hidden h-3 w-3 -ml-1.5 -mt-1.5 rounded-full bg-pink mix-blend-multiply" />
   );
 }

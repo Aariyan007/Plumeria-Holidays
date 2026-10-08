@@ -16,7 +16,7 @@ export function Marquee({ items }: { items: string[] }) {
     window.addEventListener("wheel", onWheel, { passive: true });
     return () => window.removeEventListener("wheel", onWheel);
   }, { scope: ref });
-  const row = (k: string) => items.map((i) => <span key={k + i} className="mx-8">{i} <span className="text-coral">✿</span></span>);
+  const row = (k: string) => items.map((i) => <span key={k + i} className="mx-8">{i} <span className="text-pink">✿</span></span>);
   return (
     <div ref={ref} className="overflow-hidden whitespace-nowrap border-y border-ink/10 py-6 font-display text-4xl md:text-6xl" aria-hidden>
       <div className="mq-track inline-flex">{row("a")}{row("b")}</div>

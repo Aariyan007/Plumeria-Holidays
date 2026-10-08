@@ -22,12 +22,12 @@ export function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-transform duration-500 ${hidden && !open ? "-translate-y-full" : ""}`}>
       <div className="mx-4 mt-4 flex items-center justify-between rounded-full bg-cream/85 px-5 py-2.5 shadow-sm backdrop-blur-md md:mx-8">
-        <Link href="/" className="flex items-center gap-2 text-teal" aria-label="Plumeria Holidays home">
+        <Link href="/" className="flex items-center gap-2 text-plum" aria-label="Plumeria Holidays home">
           <Logo /> <span className="font-display text-lg">Plumeria</span>
         </Link>
         <nav className="hidden gap-7 text-sm lg:flex" aria-label="Main">
           {site.nav.map((n) => (
-            <Link key={n.href} href={n.href} className={`hover:text-coral-dark ${pathname.startsWith(n.href) ? "text-coral-dark" : ""}`}>{n.label}</Link>
+            <Link key={n.href} href={n.href} className={`hover:text-pink-dark ${pathname.startsWith(n.href) ? "text-pink-dark" : ""}`}>{n.label}</Link>
           ))}
         </nav>
         <div className="hidden lg:block"><Button href="/contact">Plan my trip</Button></div>
@@ -37,7 +37,7 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <nav id="mobile-nav" className="mx-4 mt-2 rounded-3xl bg-teal p-8 text-cream lg:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="mx-4 mt-2 rounded-3xl bg-plum p-8 text-cream lg:hidden" aria-label="Mobile">
           {site.nav.map((n) => <Link key={n.href} href={n.href} className="block py-2 font-display text-3xl">{n.label}</Link>)}
         </nav>
       )}

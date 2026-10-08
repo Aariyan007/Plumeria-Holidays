@@ -15,6 +15,7 @@ export function SmoothScroll() {
     if (prefersReducedMotion()) return;
     lenis = new Lenis({ lerp: 0.1 });
     lenis.on("scroll", ScrollTrigger.update);
+    if (document.documentElement.dataset.loading) lenis.stop(); // Preloader restarts it
     const tick = (t: number) => lenis?.raf(t * 1000);
     gsap.ticker.add(tick);
     gsap.ticker.lagSmoothing(0);

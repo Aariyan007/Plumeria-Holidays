@@ -23,14 +23,14 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
 
   if (status === "sent")
     return (
-      <div role="status" className="rounded-3xl bg-green p-10 text-cream">
+      <div role="status" className="rounded-3xl bg-leaf p-10 text-cream">
         <h2 className="font-display text-4xl">Thank you!</h2>
         <p className="mt-3">Our team will call you within one working day.</p>
       </div>
     );
 
-  const field = "w-full rounded-2xl border border-ink/20 bg-white/70 px-5 py-4 outline-none focus:border-teal";
-  const err = (k: string) => errors[k] && <p id={`${k}-err`} className="mt-1 text-sm text-coral-dark">{errors[k]}</p>;
+  const field = "w-full rounded-2xl border border-ink/20 bg-white/70 px-5 py-4 outline-none focus:border-plum";
+  const err = (k: string) => errors[k] && <p id={`${k}-err`} className="mt-1 text-sm text-pink-dark">{errors[k]}</p>;
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div>
@@ -56,9 +56,9 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
         {err("message")}
       </div>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {errors.website && <p className="text-sm text-coral-dark">Something went wrong. Please call us instead.</p>}
-      {status === "error" && <p role="alert" className="text-sm text-coral-dark">Couldn&apos;t send. Check your connection or WhatsApp us.</p>}
-      <button disabled={status === "sending"} className="rounded-full bg-coral px-8 py-4 font-semibold text-ink transition-colors hover:bg-teal hover:text-cream disabled:opacity-60">
+      {errors.website && <p className="text-sm text-pink-dark">Something went wrong. Please call us instead.</p>}
+      {status === "error" && <p role="alert" className="text-sm text-pink-dark">Couldn&apos;t send. Check your connection or WhatsApp us.</p>}
+      <button disabled={status === "sending"} className="rounded-full bg-pink px-8 py-4 font-semibold text-ink transition-colors hover:bg-plum hover:text-cream disabled:opacity-60">
         {status === "sending" ? "Sending..." : "Send enquiry"}
       </button>
     </form>

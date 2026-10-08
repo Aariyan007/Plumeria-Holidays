@@ -24,7 +24,7 @@ export function FeaturedPackages() {
 
 export function HolidayTypesGrid() {
   return (
-    <section className="bg-teal px-6 py-28 text-cream md:px-16">
+    <section className="bg-plum px-6 py-28 text-cream md:px-16">
       <SectionHeading light kicker="Holiday types" title="However you like to travel" />
       <Reveal className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {getHolidayTypes().map((t) => (
@@ -54,7 +54,7 @@ export function Stats() {
     <section className="grid grid-cols-2 gap-10 px-6 py-24 md:grid-cols-4 md:px-16">
       {stats.map((s) => (
         <div key={s.label}>
-          <p className="font-display text-5xl text-teal md:text-7xl"><CountUp to={s.to} suffix={s.suffix} /></p>
+          <p className="font-display text-5xl text-plum md:text-7xl"><CountUp to={s.to} suffix={s.suffix} /></p>
           <p className="mt-2 text-sm uppercase tracking-[0.2em] text-ink/70">{s.label}</p>
         </div>
       ))}
