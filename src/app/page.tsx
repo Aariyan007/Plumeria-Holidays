@@ -1,3 +1,11 @@
+import { HeroJourney } from "@/components/motion/HeroJourney";
+import { getHeroScenes } from "@/lib/data";
+
 export default function Home() {
-  return <main className="p-10 font-display text-5xl text-teal">Plumeria</main>;
+  return (
+    <main>
+      <HeroJourney scenes={getHeroScenes()} />
+      <section className="h-screen" />
+    </main>
+  );
 }
