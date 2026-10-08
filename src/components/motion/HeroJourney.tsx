@@ -8,25 +8,27 @@ import { canUseWebGL, isLowEndDevice, prefersReducedMotion } from "@/lib/motion"
 
 const HeroCanvas = dynamic(() => import("./HeroCanvas"), { ssr: false });
 
-type Mode = "static" | "fallback" | "webgl";
+/** pending: server/first paint, laid out like the animated hero so hydration causes no layout shift. */
+type Mode = "pending" | "static" | "fallback" | "webgl";
 
 export function HeroJourney({ scenes }: { scenes: HeroScene[] }) {
   const root = useRef<HTMLElement>(null);
   const progress = useRef(0);
-  const [mode, setMode] = useState<Mode>("static");
+  const [mode, setMode] = useState<Mode>("pending");
   const [petals, setPetals] = useState(0);
 
   useEffect(() => {
-    if (prefersReducedMotion()) return;
-    const mobile = window.innerWidth < 768;
     // Decided client-side after hydration: depends on device capabilities.
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    /* eslint-disable react-hooks/set-state-in-effect */
+    if (prefersReducedMotion()) return setMode("static");
+    const mobile = window.innerWidth < 768;
     setMode(canUseWebGL() && !isLowEndDevice() ? "webgl" : "fallback");
     setPetals(mobile ? 40 : 120);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
 
   useGSAP(() => {
-    if (mode === "static") return;
+    if (mode === "static" || mode === "pending") return;
     const n = scenes.length;
     const tl = gsap.timeline({
       scrollTrigger: {
