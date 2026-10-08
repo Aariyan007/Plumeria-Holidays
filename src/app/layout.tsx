@@ -8,6 +8,8 @@ import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Cursor } from "@/components/motion/Cursor";
 import { Preloader } from "@/components/motion/Preloader";
 import { TransitionOverlay } from "@/components/motion/TransitionOverlay";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { travelAgencyLd } from "@/lib/seo";
 import "./globals.css";
 
 const fraunces = Fraunces({ subsets: ["latin"], variable: "--font-fraunces", display: "swap" });
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
       <body suppressHydrationWarning>
+        <JsonLd data={travelAgencyLd()} />
         <Preloader />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-cream focus:p-3">Skip to content</a>
         <SmoothScroll />

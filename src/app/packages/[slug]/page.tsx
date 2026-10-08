@@ -6,6 +6,8 @@ import { getDestination, getPackage, getPackages } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { tripLd } from "@/lib/seo";
 
 export const dynamicParams = false;
 export const generateStaticParams = () => getPackages().map((p) => ({ slug: p.slug }));
@@ -20,6 +22,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
   if (!p) notFound();
   return (
     <main>
+      <JsonLd data={tripLd(p)} />
       <section data-dest-hero className="relative h-[80svh] overflow-hidden text-cream">
         <Image src={p.image} alt={p.title} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
