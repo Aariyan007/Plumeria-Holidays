@@ -47,3 +47,12 @@ test("every referenced image exists in public/", () => {
   ];
   for (const img of imgs) expect(fs.existsSync(path.join("public", img)), img).toBe(true);
 });
+
+test("every circuit has map data, a real package, and a note per stop", () => {
+  for (const c of data.getCircuits()) {
+    expect(c.map, c.id).toBeDefined();
+    expect(data.getPackage(c.packageSlug), c.packageSlug).toBeDefined();
+    expect(c.map.stops.length).toBeGreaterThan(2);
+    for (const s of c.map.stops) expect(c.notes[s.slug], `${c.id}/${s.slug}`).toBeTruthy();
+  }
+});

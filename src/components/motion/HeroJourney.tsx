@@ -70,7 +70,7 @@ export function HeroJourney({ scenes }: { scenes: HeroScene[] }) {
             return (
               <div key={s.id} data-caption={i} className={animated ? `absolute bottom-0 left-0 ${i === 0 ? "" : "invisible opacity-0"}` : ""}>
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.35em] text-yellow">{s.kicker}</p>
-                <Title className={`font-display leading-[0.95] ${animated ? "text-5xl md:text-8xl" : i === 0 ? "text-4xl md:text-6xl" : "text-2xl md:text-3xl"}`}>{s.title}</Title>
+                <Title className={`font-display uppercase leading-[0.92] ${animated ? "text-5xl md:text-8xl" : i === 0 ? "text-4xl md:text-6xl" : "text-2xl md:text-3xl"}`}>{s.title}</Title>
               </div>
             );
           })}

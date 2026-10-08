@@ -5,6 +5,8 @@ import { offices } from "@/content/offices";
 import { testimonials } from "@/content/testimonials";
 import { memories } from "@/content/memories";
 import { heroScenes } from "@/content/heroScenes";
+import { circuits } from "@/content/circuits";
+import { circuitMaps } from "@/content/circuitMaps";
 import type { HolidayTypeSlug, Region } from "./types";
 
 export * from "./types";
@@ -28,3 +30,7 @@ export const getOffices = () => offices;
 export const getTestimonials = () => testimonials;
 export const getMemories = () => memories;
 export const getHeroScenes = () => heroScenes;
+
+/** Circuits joined with their generated map geometry. */
+export const getCircuits = () =>
+  circuits.map((c) => ({ ...c, map: circuitMaps[c.id] }));

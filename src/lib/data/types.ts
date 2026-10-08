@@ -20,3 +20,8 @@ export interface Office { city: string; role: "HQ" | "Branch" | "International";
 export interface Testimonial { name: string; trip: string; quote: string }
 export interface Memory { image: string; caption: string }
 export interface HeroScene { id: string; kicker: string; title: string; image: string }
+export interface Circuit {
+  id: string; label: string; title: string; packageSlug: string;
+  /** short note per stop, keyed by the stop slug in circuitMaps */
+  notes: Record<string, string>;
+}

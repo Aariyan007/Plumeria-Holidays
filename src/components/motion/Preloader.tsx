@@ -71,7 +71,7 @@ export function Preloader() {
         <circle className="pl-core" cx="50" cy="50" r="5" fill="#F7C548" />
       </svg>
       <div className="pl-text relative mt-8 text-center">
-        <p className="pl-word font-display text-5xl tracking-tight md:text-7xl">Plumeria</p>
+        <p className="pl-word font-display text-5xl uppercase md:text-7xl">Plumeria</p>
         <p className="pl-sub mt-2 text-xs uppercase tracking-[0.6em] text-yellow">Holidays · Kerala</p>
       </div>
       <div className="pl-meta absolute bottom-8 left-6 right-6 flex items-end justify-between md:left-12 md:right-12">

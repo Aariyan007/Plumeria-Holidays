@@ -19,7 +19,7 @@ test("isLowEndDevice", () => {
   expect(isLowEndDevice({ hardwareConcurrency: 8 } as unknown as Navigator)).toBe(false);
 });
 
-import { routeThrough } from "@/components/motion/keralaPath";
+import { routeThrough } from "@/components/motion/route";
 test("routeThrough", () => {
   expect(routeThrough([{ x: 0, y: 0 }])).toBe("");
   const d = routeThrough([{ x: 0, y: 0 }, { x: 10, y: 20 }, { x: 30, y: 40 }]);

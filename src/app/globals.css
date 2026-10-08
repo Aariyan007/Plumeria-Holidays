@@ -8,7 +8,7 @@
   --color-pink-dark: #A8255A;
   --color-yellow: #F7C548;
   --color-ink: #2A1420;
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-display: var(--font-syne), system-ui, sans-serif;
   --font-sans: var(--font-manrope), system-ui, sans-serif;
 }
 
@@ -20,6 +20,8 @@ body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 :focus-visible { outline: 2px solid var(--color-coral); outline-offset: 3px; }
 /* SplitText masks clip overflow; pad them so descenders/ascenders (j, y, p, g) aren't cut. */
 .split-line-mask, .split-char-mask { padding-block: 0.12em; margin-block: -0.12em; }
+/* Syne: bold geometric display; tighten tracking at large sizes. */
+.font-display { font-weight: 700; letter-spacing: -0.035em; }
 .petal-gradient { background: radial-gradient(120% 140% at 50% 110%, #F7C548 0%, #FDE9B0 28%, #FFF8F0 55%, #F9C6D7 85%, #EC5B8C 120%); }
 
 @media (prefers-reduced-motion: reduce) {
