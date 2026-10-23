@@ -28,8 +28,12 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
       .from(".cx-title", { y: 30, autoAlpha: 0, duration: 0.6, ease: "expo.out" }, 0)
       .from(".cx-stop", { x: 30, autoAlpha: 0, duration: 0.5, ease: "expo.out", stagger: 0.08 }, 0.2);
     if (seen.current) { tl.play(); return; }
-    // First reveal waits until the section scrolls into view.
-    ScrollTrigger.create({ trigger: root.current, start: "top 70%", once: true, onEnter: () => { seen.current = true; tl.play(); } });
+    // First reveal waits until the section scrolls into view; if a fast scroll skips past it, just show the end state.
+    ScrollTrigger.create({
+      trigger: root.current, start: "top 70%", once: true,
+      onEnter: () => { seen.current = true; tl.play(); },
+      onLeave: () => { seen.current = true; tl.progress(1); },
+    });
   }, { scope: root, dependencies: [activeId], revertOnUpdate: true });
 
   return (
