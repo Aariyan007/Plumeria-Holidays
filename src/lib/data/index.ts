@@ -14,8 +14,6 @@ export * from "./types";
 export const getDestinations = (region?: Region) =>
   region ? destinations.filter((d) => d.region === region) : destinations;
 export const getDestination = (slug: string) => destinations.find((d) => d.slug === slug);
-export const getKeralaDestinations = () =>
-  destinations.filter((d) => d.map).sort((a, b) => a.map!.order - b.map!.order);
 
 export const getPackages = (filter: { region?: Region; type?: HolidayTypeSlug } = {}) =>
   packages.filter(
@@ -26,6 +24,8 @@ export const getFeaturedPackages = () => packages.filter((p) => p.featured);
 export const getPackagesForDestination = (slug: string) => packages.filter((p) => p.destinationSlugs.includes(slug));
 
 export const getHolidayTypes = () => holidayTypes;
+/** Holiday types that have at least one packaged itinerary (for the package filter). */
+export const getPackagedHolidayTypes = () => holidayTypes.filter((t) => packages.some((p) => p.holidayTypes.includes(t.slug)));
 export const getOffices = () => offices;
 export const getTestimonials = () => testimonials;
 export const getMemories = () => memories;

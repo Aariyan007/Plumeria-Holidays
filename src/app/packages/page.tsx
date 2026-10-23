@@ -1,11 +1,11 @@
-import { getHolidayTypes, getPackages, type HolidayTypeSlug } from "@/lib/data";
+import { getPackagedHolidayTypes, getPackages, type HolidayTypeSlug } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PackageFilter } from "@/components/motion/PackageFilter";
 
-export const metadata = { title: "Tour Packages", description: "Kerala, India and international holiday packages." };
+export const metadata = { title: "Tour Packages", description: "Domestic and international tour packages from Kochi, Kerala." };
 
 export default async function PackagesPage({ searchParams }: PageProps<"/packages">) {
-  const types = getHolidayTypes();
+  const types = getPackagedHolidayTypes();
   const t = (await searchParams).type;
   const initialType = types.find((x) => x.slug === t)?.slug as HolidayTypeSlug | undefined;
   return (

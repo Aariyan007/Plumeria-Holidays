@@ -41,34 +41,6 @@
     "artist": "Paul Arps from The Netherlands",
     "license": "CC BY 2.0"
   },
-  "kovalam": {
-    "title": "File:Lighthouse at Kovalam Beach, Thiruvananthapuram.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Lighthouse_at_Kovalam_Beach%2C_Thiruvananthapuram.jpg/3840px-Lighthouse_at_Kovalam_Beach%2C_Thiruvananthapuram.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Lighthouse_at_Kovalam_Beach,_Thiruvananthapuram.jpg",
-    "artist": "Amitbalani",
-    "license": "CC0"
-  },
-  "thekkady": {
-    "title": "File:Periyar National Park-WUS07597.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Periyar_National_Park-WUS07597.jpg/3840px-Periyar_National_Park-WUS07597.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Periyar_National_Park-WUS07597.jpg",
-    "artist": "Rainer Halama",
-    "license": "CC BY-SA 4.0"
-  },
-  "wayanad": {
-    "title": "File:Soochipara Falls, Wayanad Kerala, 2013 (Landscape).jpeg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Soochipara_Falls%2C_Wayanad_Kerala%2C_2013_%28Landscape%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "page": "https://commons.wikimedia.org/wiki/File:Soochipara_Falls,_Wayanad_Kerala,_2013_(Landscape).jpeg",
-    "artist": "Yjenith",
-    "license": "CC BY-SA 3.0"
-  },
-  "kochi": {
-    "title": "File:Sunset with Chinese Fishing Nets, Fort Kochi 1.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Sunset_with_Chinese_Fishing_Nets%2C_Fort_Kochi_1.jpg/3840px-Sunset_with_Chinese_Fishing_Nets%2C_Fort_Kochi_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Sunset_with_Chinese_Fishing_Nets,_Fort_Kochi_1.jpg",
-    "artist": "Rangan Datta Wiki",
-    "license": "CC BY-SA 4.0"
-  },
   "goa": {
     "title": "File:Vagator Beach, Goa, India, Palms.jpg",
     "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Vagator_Beach%2C_Goa%2C_India%2C_Palms.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
@@ -89,13 +61,6 @@
     "page": "https://commons.wikimedia.org/wiki/File:Empty_shikara_on_Dal_Lake,_Srinagar,_India_2013-08-23_(flickr_9967093983).jpg",
     "artist": "Fulvio Spada from Torino, Italy",
     "license": "CC BY-SA 2.0"
-  },
-  "rajasthan": {
-    "title": "File:Taj Mahal, Agra, India edit2.jpg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Taj_Mahal%2C_Agra%2C_India_edit2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "page": "https://commons.wikimedia.org/wiki/File:Taj_Mahal,_Agra,_India_edit2.jpg",
-    "artist": "Yann; edited by King of Hearts",
-    "license": "CC BY-SA 4.0"
   },
   "bali": {
     "title": "File:Rice terraces, Bali.jpg",
@@ -119,18 +84,18 @@
     "license": "CC BY 2.0"
   },
   "thailand": {
-    "title": "File:Isla Phi Phi Lay, Tailandia, 2013-08-19, DD 04.JPG",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Isla_Phi_Phi_Lay%2C_Tailandia%2C_2013-08-19%2C_DD_04.JPG/3840px-Isla_Phi_Phi_Lay%2C_Tailandia%2C_2013-08-19%2C_DD_04.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Isla_Phi_Phi_Lay,_Tailandia,_2013-08-19,_DD_04.JPG",
-    "artist": "Diego Delso",
-    "license": "CC BY-SA 3.0"
+    "title": "File:Pattaya Beach, Pattaya Bay, Thailand.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Pattaya_Beach%2C_Pattaya_Bay%2C_Thailand.jpg/3840px-Pattaya_Beach%2C_Pattaya_Bay%2C_Thailand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Pattaya_Beach,_Pattaya_Bay,_Thailand.jpg",
+    "artist": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0"
   },
   "vietnam": {
-    "title": "File:View of sea from Titov Island, Ha Long Bay, Vietnam, 20240128 1337 3732.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/View_of_sea_from_Titov_Island%2C_Ha_Long_Bay%2C_Vietnam%2C_20240128_1337_3732.jpg/3840px-View_of_sea_from_Titov_Island%2C_Ha_Long_Bay%2C_Vietnam%2C_20240128_1337_3732.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:View_of_sea_from_Titov_Island,_Ha_Long_Bay,_Vietnam,_20240128_1337_3732.jpg",
-    "artist": "Jakub Hałun",
-    "license": "CC BY 4.0"
+    "title": "File:Ho Chi Minh City Skyline (night).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ho_Chi_Minh_City_Skyline_%28night%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City_Skyline_(night).jpg",
+    "artist": "Jim 陳",
+    "license": "CC BY-SA 2.0"
   },
   "europe": {
     "title": "File:CH.LU.Luzern Kapellbrücke 01 16x9-R 16384x9216.jpg",
@@ -146,26 +111,12 @@
     "artist": "Sravanbaddi",
     "license": "CC BY-SA 4.0"
   },
-  "type-family": {
-    "title": "File:Athirappalli Waterfalls, Thrissur, Kerala.jpg",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Athirappalli_Waterfalls%2C_Thrissur%2C_Kerala.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-    "page": "https://commons.wikimedia.org/wiki/File:Athirappalli_Waterfalls,_Thrissur,_Kerala.jpg",
-    "artist": "Pranchiyettan",
-    "license": "CC BY-SA 3.0"
-  },
   "type-houseboat": {
     "title": "File:House boat fascia.jpg",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/House_boat_fascia.jpg/3840px-House_boat_fascia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "page": "https://commons.wikimedia.org/wiki/File:House_boat_fascia.jpg",
     "artist": "Challiyan",
     "license": "CC BY 3.0"
-  },
-  "type-adventure": {
-    "title": "File:Chembra Peak Heart Lake.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Chembra_Peak_Heart_Lake.jpg/3840px-Chembra_Peak_Heart_Lake.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-    "page": "https://commons.wikimedia.org/wiki/File:Chembra_Peak_Heart_Lake.jpg",
-    "artist": "Ravi Dwivedi",
-    "license": "CC BY-SA 4.0"
   },
   "type-group": {
     "title": "File:Kathakali performance (2023) 02.jpg",
@@ -236,5 +187,75 @@
     "page": "https://commons.wikimedia.org/wiki/File:Kerala_backwater_20080218-11.jpg",
     "artist": "Hans A. Rosbach",
     "license": "CC BY-SA 3.0"
+  },
+  "golden-triangle": {
+    "title": "File:Taj Mahal, Agra, India edit2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Taj_Mahal%2C_Agra%2C_India_edit2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Taj_Mahal,_Agra,_India_edit2.jpg",
+    "artist": "Yann; edited by King of Hearts",
+    "license": "CC BY-SA 4.0"
+  },
+  "hyderabad": {
+    "title": "File:Minaret of charminar 12032012.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Minaret_of_charminar_12032012.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:Minaret_of_charminar_12032012.jpg",
+    "artist": "Joydeep",
+    "license": "CC BY-SA 3.0"
+  },
+  "coorg": {
+    "title": "File:Abbey falls - Madikeri.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Abbey_falls_-_Madikeri.jpg/3840px-Abbey_falls_-_Madikeri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Abbey_falls_-_Madikeri.jpg",
+    "artist": "Shanmugamp7",
+    "license": "CC BY-SA 3.0"
+  },
+  "manali": {
+    "title": "File:Simsa Manali East Himachal Oct22 A7C 03328.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Simsa_Manali_East_Himachal_Oct22_A7C_03328.jpg/3840px-Simsa_Manali_East_Himachal_Oct22_A7C_03328.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Simsa_Manali_East_Himachal_Oct22_A7C_03328.jpg",
+    "artist": "This Photo was taken by Timothy A. Gonsalves.  Feel free to use my photos, but please mention me as the author.  I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information.  Please contact me before commercial use.\n\n\n\nPlease do not upload an edited image here without consulting me.  I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+    "license": "CC BY-SA 4.0"
+  },
+  "lakshadweep": {
+    "title": "File:Fishermen at Kavarathi, Lakshadweep, India (edit).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/60/Fishermen_at_Kavarathi%2C_Lakshadweep%2C_India_%28edit%29.jpg/3840px-Fishermen_at_Kavarathi%2C_Lakshadweep%2C_India_%28edit%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Fishermen_at_Kavarathi,_Lakshadweep,_India_(edit).jpg",
+    "artist": "Original:  Shafeeq Thamarassery\n\nDerivative work:  UnpetitproleX",
+    "license": "CC BY-SA 4.0"
+  },
+  "azerbaijan": {
+    "title": "File:BAKU AT NIGHT .RED TOWERS.באקו בלילה מגדלים באדום.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/BAKU_AT_NIGHT_.RED_TOWERS.%D7%91%D7%90%D7%A7%D7%95_%D7%91%D7%9C%D7%99%D7%9C%D7%94_%D7%9E%D7%92%D7%93%D7%9C%D7%99%D7%9D_%D7%91%D7%90%D7%93%D7%95%D7%9D.jpg/3840px-BAKU_AT_NIGHT_.RED_TOWERS.%D7%91%D7%90%D7%A7%D7%95_%D7%91%D7%9C%D7%99%D7%9C%D7%94_%D7%9E%D7%92%D7%93%D7%9C%D7%99%D7%9D_%D7%91%D7%90%D7%93%D7%95%D7%9D.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:BAKU_AT_NIGHT_.RED_TOWERS.%D7%91%D7%90%D7%A7%D7%95_%D7%91%D7%9C%D7%99%D7%9C%D7%94_%D7%9E%D7%92%D7%93%D7%9C%D7%99%D7%9D_%D7%91%D7%90%D7%93%D7%95%D7%9D.jpg",
+    "artist": "Avisadehh",
+    "license": "CC0"
+  },
+  "hong-kong-macau": {
+    "title": "File:International Commerce Centre on Victoria Harbour.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/International_Commerce_Centre_on_Victoria_Harbour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "page": "https://commons.wikimedia.org/wiki/File:International_Commerce_Centre_on_Victoria_Harbour.jpg",
+    "artist": "Wilfredor",
+    "license": "CC0"
+  },
+  "malaysia": {
+    "title": "File:The Twins SE Asia 2019 (49171985716).jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/The_Twins_SE_Asia_2019_%2849171985716%29.jpg/3840px-The_Twins_SE_Asia_2019_%2849171985716%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg",
+    "artist": "James Kerwin from Tbilisi",
+    "license": "CC BY 2.0"
+  },
+  "singapore": {
+    "title": "File:ArtScience Museum, Marina Bay Sands, Singapore.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/ArtScience_Museum%2C_Marina_Bay_Sands%2C_Singapore.jpg/3840px-ArtScience_Museum%2C_Marina_Bay_Sands%2C_Singapore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:ArtScience_Museum,_Marina_Bay_Sands,_Singapore.jpg",
+    "artist": "Basile Morin",
+    "license": "CC BY-SA 4.0"
+  },
+  "russia": {
+    "title": "File:Russia-2007-Moscow-Kremlin Senate at night.jpg",
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Russia-2007-Moscow-Kremlin_Senate_at_night.jpg/3840px-Russia-2007-Moscow-Kremlin_Senate_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "page": "https://commons.wikimedia.org/wiki/File:Russia-2007-Moscow-Kremlin_Senate_at_night.jpg",
+    "artist": "Godot13",
+    "license": "CC BY-SA 4.0"
   }
 }
