@@ -25,12 +25,12 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
       <section data-dest-hero className="relative h-svh overflow-hidden text-cream">
         <Image src={d.image} alt={d.name} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
-        <div className="absolute bottom-16 left-6 md:left-16">
+        <div className="absolute bottom-16 left-6 right-6 md:left-16 md:right-16">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-yellow">{d.tagline}</p>
-          <SplitReveal as="h1" immediate className="font-display text-6xl md:text-9xl">{d.name}</SplitReveal>
+          <SplitReveal as="h1" immediate className="font-display text-[clamp(2.75rem,14vw,4.5rem)] leading-[0.95] md:text-8xl lg:text-9xl">{d.name}</SplitReveal>
         </div>
       </section>
-      <section className="grid gap-16 px-6 py-24 md:grid-cols-2 md:px-16">
+      <section className="grid gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-16 md:py-24">
         <p className="font-display text-2xl leading-snug md:text-4xl">{d.story}</p>
         <Reveal>
           <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-pink-dark">Highlights</h2>
@@ -42,7 +42,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
       {pkgs.length > 0 && (
         <section className="bg-plum px-6 py-24 text-cream md:px-16">
           <SectionHeading light kicker="Packages" title={`Ways to see ${d.name}`} />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">{pkgs.map((p) => <PackageCard key={p.slug} pkg={p} />)}</div>
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">{pkgs.map((p) => <PackageCard key={p.slug} pkg={p} />)}</div>
         </section>
       )}
     </main>

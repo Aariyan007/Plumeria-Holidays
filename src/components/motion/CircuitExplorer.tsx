@@ -33,7 +33,7 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
   }, { scope: root, dependencies: [activeId], revertOnUpdate: true });
 
   return (
-    <section ref={root} className="bg-leaf px-6 py-24 text-cream md:px-16" aria-label="Signature circuits">
+    <section ref={root} className="overflow-x-clip bg-leaf px-6 py-24 text-cream md:px-16" aria-label="Signature circuits">
       <div className="flex flex-wrap items-end justify-between gap-6">
         <div>
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-yellow">Signature circuits</p>
@@ -49,8 +49,8 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
         </div>
       </div>
 
-      <div className="mt-14 grid items-center gap-12 md:grid-cols-[1.1fr_1fr]">
-        <svg key={c.id} viewBox={c.map.viewBox} className="mx-auto max-h-[70svh] w-full" role="img" aria-label={`Map of the ${c.label} circuit`}>
+      <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+        <svg key={c.id} viewBox={c.map.viewBox} className="mx-auto max-h-[55svh] w-full lg:max-h-[70svh]" role="img" aria-label={`Map of the ${c.label} circuit`}>
           <path className="cx-fill" d={c.map.outline} fill="#FFF8F0" fillOpacity="0.07" />
           <path className="cx-outline" d={c.map.outline} fill="none" stroke="#FFF8F0" strokeOpacity="0.7" strokeWidth="1.2" strokeLinejoin="round" />
           <path className="cx-route" d={route} fill="none" stroke="#F7C548" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 0" />
@@ -63,13 +63,13 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
         </svg>
 
         <div>
-          <ol className="space-y-5">
+          <ol className="grid gap-5 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-1">
             {c.map.stops.map((s, i) => (
               <li key={s.slug} className="cx-stop" onMouseEnter={() => setHover(s.slug)} onMouseLeave={() => setHover(null)}>
                 <div className="flex items-baseline gap-4 border-b border-cream/15 pb-4">
-                  <span className="font-display text-sm text-yellow">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <p className="font-display text-2xl">{s.name}</p>
+                  <span className="w-6 shrink-0 font-display text-sm text-yellow">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="min-w-0">
+                    <p className="font-display text-xl sm:text-2xl">{s.name}</p>
                     <p className="text-sm text-cream/75">{c.notes[s.slug]}</p>
                   </div>
                 </div>
