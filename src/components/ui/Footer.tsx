@@ -6,9 +6,9 @@ import { Logo } from "./Logo";
 export function Footer() {
   return (
     <footer className="bg-ink px-6 pb-10 pt-24 text-cream md:px-16">
-      <div className="grid gap-12 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-3"><Logo className="h-12 w-12" /><span className="font-display text-3xl">Plumeria Holidays</span></div>
+      <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="sm:col-span-2">
+          <div className="flex items-center gap-3"><Logo className="h-12 w-12 shrink-0" /><span className="font-display text-2xl sm:text-3xl">Plumeria Holidays</span></div>
           <p className="mt-4 max-w-sm text-cream/70">{site.tagline}. Tailor-made journeys from Kochi to the world.</p>
         </div>
         <div>

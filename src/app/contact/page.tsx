@@ -12,10 +12,10 @@ export default async function ContactPage({ searchParams }: PageProps<"/contact"
   const dest = one(sp.destination) ? getDestination(one(sp.destination)!) : undefined;
   const msg = pkg ? `I'm interested in the ${pkg.title} package.` : dest ? `I'd like to plan a trip to ${dest.name}.` : "";
   return (
-    <main className="grid gap-16 px-6 pb-24 pt-40 md:grid-cols-2 md:px-16">
+    <main className="grid gap-12 px-6 pb-24 pt-32 md:px-16 md:pt-40 lg:grid-cols-2 lg:gap-16">
       <div>
         <p className="mb-4 text-xs uppercase tracking-[0.3em] text-pink-dark">Contact</p>
-        <SplitReveal as="h1" immediate className="font-display text-5xl leading-none md:text-7xl">Let&apos;s plan something beautiful</SplitReveal>
+        <SplitReveal as="h1" immediate className="font-display text-[clamp(2.5rem,12vw,3rem)] leading-none md:text-7xl">Let&apos;s plan something beautiful</SplitReveal>
         <div className="mt-10 space-y-2 text-lg">
           <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="block hover:text-pink-dark">{site.phone}</a>
           <a href={`mailto:${site.email}`} className="block break-all hover:text-pink-dark">{site.email}</a>

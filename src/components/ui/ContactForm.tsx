@@ -38,7 +38,7 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
         <input id="name" name="name" className={field} aria-invalid={!!errors.name} aria-describedby={errors.name ? "name-err" : undefined} autoComplete="name" />
         {err("name")}
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm">Phone / WhatsApp</label>
           <input id="phone" name="phone" type="tel" className={field} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? "phone-err" : undefined} autoComplete="tel" />

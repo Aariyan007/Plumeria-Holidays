@@ -30,10 +30,10 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-yellow">
             {p.durationDays} days · {p.destinationSlugs.map((s) => getDestination(s)?.name).join(" · ")}
           </p>
-          <SplitReveal as="h1" immediate className="font-display text-5xl md:text-8xl">{p.title}</SplitReveal>
+          <SplitReveal as="h1" immediate className="font-display text-[clamp(2.25rem,11vw,3rem)] leading-[0.95] md:text-7xl lg:text-8xl">{p.title}</SplitReveal>
         </div>
       </section>
-      <section className="grid gap-16 px-6 py-24 md:grid-cols-[2fr_1fr] md:px-16">
+      <section className="grid gap-12 px-6 py-20 md:px-16 md:py-24 lg:grid-cols-[2fr_1fr] lg:gap-16">
         <div>
           <p className="font-display text-2xl md:text-3xl">{p.summary}</p>
           <ol className="relative mt-14 space-y-10 border-l border-ink/15 pl-8">
@@ -49,7 +49,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
             ))}
           </ol>
         </div>
-        <aside className="h-fit rounded-3xl bg-plum p-8 text-cream md:sticky md:top-28">
+        <aside className="h-fit rounded-3xl bg-plum p-6 text-cream sm:p-8 lg:sticky lg:top-28">
           <h2 className="text-xs uppercase tracking-[0.3em] text-yellow">Included</h2>
           <ul className="mt-4 space-y-2">{p.inclusions.map((i) => <li key={i}>· {i}</li>)}</ul>
           <p className="mt-6 text-sm text-cream/80">

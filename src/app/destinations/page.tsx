@@ -17,14 +17,14 @@ export default function DestinationsPage() {
       {groups.map((g) => (
         <section key={g.label} className="mt-20">
           <h2 className="mb-8 text-xs uppercase tracking-[0.3em] text-pink-dark">{g.label}</h2>
-          <Reveal className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-8 lg:grid-cols-4">
             {g.items.map((d) => (
               <Link key={d.slug} href={`/destinations/${d.slug}`} className="group" data-cursor>
-                <div className="relative aspect-[3/4] overflow-hidden rounded-3xl">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl">
                   <Image src={d.image} alt={d.name} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
-                <h3 className="mt-4 font-display text-2xl">{d.name}</h3>
-                <p className="text-sm text-ink/70">{d.tagline}</p>
+                <h3 className="mt-3 font-display text-xl sm:mt-4 sm:text-2xl">{d.name}</h3>
+                <p className="text-xs text-ink/70 sm:text-sm">{d.tagline}</p>
               </Link>
             ))}
           </Reveal>

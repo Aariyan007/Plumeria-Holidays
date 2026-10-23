@@ -15,7 +15,8 @@
 html { background: var(--color-cream); color: var(--color-ink); }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
-body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+/* clip (not hidden) so sticky and GSAP pins keep working; a stray wide element can't make phones pan sideways. */
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: clip; }
 ::selection { background: var(--color-coral); color: var(--color-cream); }
 :focus-visible { outline: 2px solid var(--color-coral); outline-offset: 3px; }
 /* SplitText masks clip overflow; pad them so descenders/ascenders (j, y, p, g) aren't cut. */
