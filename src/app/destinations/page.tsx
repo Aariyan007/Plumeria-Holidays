@@ -23,7 +23,7 @@ export default function DestinationsPage() {
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl sm:rounded-3xl">
                   <Image src={d.image} alt={d.name} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 </div>
-                <h3 className="mt-3 font-display text-xl sm:mt-4 sm:text-2xl">{d.name}</h3>
+                <h3 className="mt-3 font-display text-[clamp(1rem,5vw,1.25rem)] sm:mt-4 sm:text-2xl">{d.name}</h3>
                 <p className="text-xs text-ink/70 sm:text-sm">{d.tagline}</p>
               </Link>
             ))}

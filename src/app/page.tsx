@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main>
       <HeroJourney scenes={getHeroScenes()} />
-      <Marquee items={["Houseboats", "Tea hills", "Spice trails", "Beaches", "Ayurveda", "Kathakali", "Wildlife"]} />
+      <Marquee items={["Kashmir", "Golden Triangle", "Houseboats", "Thailand", "Bali", "Dubai", "Vietnam", "Azerbaijan"]} />
       <DestinationExplorer destinations={getDestinations().slice(0, 8)} />
       <CircuitExplorer circuits={getCircuits()} />
       <FeaturedPackages />

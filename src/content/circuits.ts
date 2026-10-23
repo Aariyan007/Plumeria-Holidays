@@ -1,20 +1,20 @@
 import type { Circuit } from "@/lib/data/types";
 
-// Stop positions come from circuitMaps.ts (generated); notes here are keyed by stop slug.
+// Stop positions come from circuitMaps.ts (generated); notes here are keyed by stop slug and follow the published itineraries.
 export const circuits: Circuit[] = [
-  { id: "kerala", label: "Kerala", title: "From the hills to the sea, in one journey", packageSlug: "kerala-classic-6d",
-    notes: { wayanad: "Forests, caves and coffee", kochi: "Where the spice routes began", munnar: "Mist, tea and mountain air",
-      thekkady: "Spice trails and wild elephants", alleppey: "A night on the backwaters", kovalam: "Crescent beaches at land's end" } },
-  { id: "thailand", label: "Thailand", title: "Temples, islands and street food", packageSlug: "thailand-group-6d",
-    notes: { "chiang-mai": "Old city temples and night bazaars", bangkok: "Grand Palace and river cruises", pattaya: "Coral Island by speedboat",
-      phuket: "Long-tail boats to Phi Phi", krabi: "Limestone cliffs and lagoons" } },
-  { id: "bali", label: "Bali", title: "Rice terraces to clifftop sunsets", packageSlug: "bali-escape-6d",
-    notes: { seminyak: "Beach clubs and sunsets", ubud: "Jungle swings and terraces", kintamani: "Volcano views over coffee",
-      "nusa-penida": "Kelingking cliffs", uluwatu: "Temple and Kecak fire dance" } },
-  { id: "vietnam", label: "Vietnam", title: "Bays, lanterns and pho", packageSlug: "vietnam-discovery-7d",
-    notes: { hanoi: "Old Quarter food walk", "ha-long": "Overnight cruise among karsts", "hoi-an": "Golden Bridge and lantern nights",
-      saigon: "Markets and the Mekong" } },
-  { id: "europe", label: "Europe", title: "The grand tour, escorted", packageSlug: "europe-grand-tour-10d",
-    notes: { paris: "Eiffel Tower and the Seine", lucerne: "Mt Titlis and Top of Europe", venice: "Gondolas at golden hour",
-      florence: "Duomo and the Leaning Tower", rome: "Colosseum and the Vatican" } },
+  { id: "kashmir", label: "Kashmir", title: "Lakes, meadows and valleys in five days", packageSlug: "kashmir-5d",
+    notes: { srinagar: "Mughal gardens and a shikara on Dal Lake", gulmarg: "Meadows and the gondola to the snow",
+      pahalgam: "Saffron fields, Aru and Betaab Valley" } },
+  { id: "golden-triangle", label: "Golden Triangle", title: "Delhi, the Taj Mahal and Jaipur", packageSlug: "golden-triangle-5d",
+    notes: { delhi: "Qutub Minar, India Gate and Humayun's Tomb", agra: "The Taj Mahal at sunrise",
+      jaipur: "Amber Fort, Hawa Mahal and City Palace" } },
+  { id: "thailand", label: "Thailand", title: "Pattaya's islands to Bangkok's temples", packageSlug: "thailand-4d",
+    notes: { pattaya: "Floating market and Tiger Park", "coral-island": "Half a day on Coral Island",
+      "safari-world": "Safari World & Marine Park", bangkok: "Golden and Marble Buddha temples" } },
+  { id: "vietnam", label: "Vietnam", title: "Saigon, the tunnels and the Mekong", packageSlug: "vietnam-5d",
+    notes: { "ho-chi-minh-city": "Landmarks, walking street and a dinner cruise", "cu-chi": "The Cu Chi Tunnels",
+      "ben-tre": "Sampan ride in the Mekong Delta" } },
+  { id: "bali", label: "Bali", title: "Beaches, temples and Nusa Penida", packageSlug: "bali-5d",
+    notes: { kuta: "Sunset at Kuta Beach", uluwatu: "Clifftop temple and Kecak fire dance", ubud: "Ubud Palace and art villages",
+      kintamani: "Volcano views and the rice terraces", "nusa-penida": "Kelingking Beach by speedboat" } },
 ];

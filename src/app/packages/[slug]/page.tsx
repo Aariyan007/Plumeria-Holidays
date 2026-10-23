@@ -41,17 +41,27 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
               <li key={d.day} className="relative">
                 <span className="absolute -left-[39px] top-1.5 h-3 w-3 rounded-full bg-pink" aria-hidden />
                 <Reveal>
-                  <p className="text-xs uppercase tracking-[0.3em] text-pink-dark">Day {d.day}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-pink-dark">{d.label ?? `Day ${d.day}`}</p>
                   <h2 className="mt-1 font-display text-2xl">{d.title}</h2>
                   <p className="mt-1 text-ink/70">{d.blurb}</p>
+                  {d.meals && <p className="mt-2 text-sm text-ink/55">Meals: {d.meals}</p>}
                 </Reveal>
               </li>
             ))}
           </ol>
+          {p.itinerary.some((d) => d.label) && <p className="mt-8 text-sm text-ink/60">A typical outline; we&apos;ll send the exact day-by-day with your quote.</p>}
         </div>
         <aside className="h-fit rounded-3xl bg-plum p-6 text-cream sm:p-8 lg:sticky lg:top-28">
           <h2 className="text-xs uppercase tracking-[0.3em] text-yellow">Included</h2>
-          <ul className="mt-4 space-y-2">{p.inclusions.map((i) => <li key={i}>· {i}</li>)}</ul>
+          {p.inclusions?.length
+            ? <ul className="mt-4 space-y-2">{p.inclusions.map((i) => <li key={i}>· {i}</li>)}</ul>
+            : <p className="mt-4 text-cream/80">Confirmed with your quote.</p>}
+          {!!p.exclusions?.length && (
+            <>
+              <h2 className="mt-8 text-xs uppercase tracking-[0.3em] text-yellow">Not included</h2>
+              <ul className="mt-4 space-y-2 text-cream/80">{p.exclusions.map((i) => <li key={i}>· {i}</li>)}</ul>
+            </>
+          )}
           <p className="mt-6 text-sm text-cream/80">
             {p.priceFrom ? `From ₹${p.priceFrom.toLocaleString("en-IN")} per person` : "Price on request, tailored to your dates."}
           </p>

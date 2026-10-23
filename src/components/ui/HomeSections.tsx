@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getFeaturedPackages, getHolidayTypes, getTestimonials } from "@/lib/data";
+import { getDestinations, getFeaturedPackages, getHolidayTypes, getOffices, getTestimonials } from "@/lib/data";
 import { site } from "@/lib/site";
 import { PackageCard } from "./PackageCard";
 import { SectionHeading } from "./SectionHeading";
@@ -26,10 +26,10 @@ export function HolidayTypesGrid() {
   return (
     <section className="bg-plum px-6 py-28 text-cream md:px-16">
       <SectionHeading light kicker="Holiday types" title="However you like to travel" />
-      <Reveal className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <Reveal className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {getHolidayTypes().map((t) => (
-          <Link key={t.slug} href={`/packages?type=${t.slug}`} className="group relative block aspect-[4/3] overflow-hidden rounded-3xl" data-cursor>
-            <Image src={t.image} alt="" fill sizes="(min-width:1024px) 33vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+          <Link key={t.slug} href={`/holiday-types#${t.slug}`} className="group relative block aspect-[4/3] overflow-hidden rounded-3xl lg:aspect-[3/4]" data-cursor>
+            <Image src={t.image} alt="" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <h3 className="font-display text-3xl">{t.name}</h3>
@@ -43,14 +43,14 @@ export function HolidayTypesGrid() {
   );
 }
 
-// PLACEHOLDER stats: confirm real figures with the client before launch.
-const stats = [
-  { to: 15, suffix: "+", label: "Years of journeys" },
-  { to: 25000, suffix: "+", label: "Happy travellers" },
-  { to: 7, suffix: "", label: "Offices" },
-  { to: 30, suffix: "+", label: "Destinations" },
-];
 export function Stats() {
+  // PLACEHOLDER years/travellers: confirm real figures with the client before launch. Offices and destinations are counted from content.
+  const stats = [
+    { to: 15, suffix: "+", label: "Years of journeys" },
+    { to: 25000, suffix: "+", label: "Happy travellers" },
+    { to: getOffices().length, suffix: "", label: "Offices" },
+    { to: getDestinations().length, suffix: "", label: "Destinations" },
+  ];
   return (
     <section className="grid grid-cols-2 gap-x-6 gap-y-10 px-6 py-24 md:px-16 lg:grid-cols-4">
       {stats.map((s) => (

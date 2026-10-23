@@ -28,8 +28,12 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
       .from(".cx-title", { y: 30, autoAlpha: 0, duration: 0.6, ease: "expo.out" }, 0)
       .from(".cx-stop", { x: 30, autoAlpha: 0, duration: 0.5, ease: "expo.out", stagger: 0.08 }, 0.2);
     if (seen.current) { tl.play(); return; }
-    // First reveal waits until the section scrolls into view.
-    ScrollTrigger.create({ trigger: root.current, start: "top 70%", once: true, onEnter: () => { seen.current = true; tl.play(); } });
+    // First reveal waits until the section scrolls into view; if a fast scroll skips past it, just show the end state.
+    ScrollTrigger.create({
+      trigger: root.current, start: "top 70%", once: true,
+      onEnter: () => { seen.current = true; tl.play(); },
+      onLeave: () => { seen.current = true; tl.progress(1); },
+    });
   }, { scope: root, dependencies: [activeId], revertOnUpdate: true });
 
   return (
@@ -51,8 +55,22 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
 
       <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
         <svg key={c.id} viewBox={c.map.viewBox} className="mx-auto max-h-[55svh] w-full lg:max-h-[70svh]" role="img" aria-label={`Map of the ${c.label} circuit`}>
-          <path className="cx-fill" d={c.map.outline} fill="#FFF8F0" fillOpacity="0.07" />
-          <path className="cx-outline" d={c.map.outline} fill="none" stroke="#FFF8F0" strokeOpacity="0.7" strokeWidth="1.2" strokeLinejoin="round" />
+          {c.map.framed && (
+            // Cropped regions would end in a hard rectangle; fade the land out towards the edges instead.
+            <defs>
+              <radialGradient id={`cx-fade-g-${c.id}`} r="0.5">
+                <stop offset="0.55" stopColor="#fff" />
+                <stop offset="1" stopColor="#000" />
+              </radialGradient>
+              <mask id={`cx-fade-${c.id}`}>
+                <rect width="100%" height="100%" fill={`url(#cx-fade-g-${c.id})`} />
+              </mask>
+            </defs>
+          )}
+          <g mask={c.map.framed ? `url(#cx-fade-${c.id})` : undefined}>
+            <path className="cx-fill" d={c.map.outline} fill="#FFF8F0" fillOpacity="0.07" />
+            <path className="cx-outline" d={c.map.outline} fill="none" stroke="#FFF8F0" strokeOpacity="0.7" strokeWidth="1.2" strokeLinejoin="round" />
+          </g>
           <path className="cx-route" d={route} fill="none" stroke="#F7C548" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 0" />
           {c.map.stops.map((s, i) => (
             <g key={s.slug} className="cx-pin">

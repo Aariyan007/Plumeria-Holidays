@@ -15,14 +15,22 @@ test("region filter", () => {
 });
 
 test("package filters combine region and type", () => {
-  const p = data.getPackages({ region: "domestic", type: "honeymoon" });
+  const p = data.getPackages({ region: "domestic", type: "group" });
   expect(p.length).toBeGreaterThan(0);
-  expect(p.every((x) => x.region === "domestic" && x.holidayTypes.includes("honeymoon"))).toBe(true);
+  expect(p.every((x) => x.region === "domestic" && x.holidayTypes.includes("group"))).toBe(true);
 });
 
-test("kerala destinations ordered for map", () => {
-  const k = data.getKeralaDestinations().map((d) => d.slug);
-  expect(k).toEqual(["wayanad", "kochi", "munnar", "alleppey", "thekkady", "kovalam"]);
+test("holiday types point at real destinations; package filter only offers types with packages", () => {
+  for (const t of data.getHolidayTypes())
+    for (const s of t.destinationSlugs) expect(data.getDestination(s), `${t.slug} -> ${s}`).toBeDefined();
+  for (const t of data.getPackagedHolidayTypes()) expect(data.getPackages({ type: t.slug }).length, t.slug).toBeGreaterThan(0);
+});
+
+test("itineraries have consecutive days and fit the stated duration", () => {
+  for (const p of data.getPackages()) {
+    expect(p.itinerary.map((d) => d.day), p.slug).toEqual(p.itinerary.map((_, i) => i + 1));
+    expect(p.itinerary.length, p.slug).toBeLessThanOrEqual(p.durationDays);
+  }
 });
 
 test("slugs unique", () => {
@@ -55,4 +63,10 @@ test("every circuit has map data, a real package, and a note per stop", () => {
     expect(c.map.stops.length).toBeGreaterThan(2);
     for (const s of c.map.stops) expect(c.notes[s.slug], `${c.id}/${s.slug}`).toBeTruthy();
   }
+});
+
+test("memory filter chips cover every memory and none are empty", () => {
+  const tags = data.getMemoryTags().map((t) => t.slug);
+  for (const m of data.getMemories()) expect(tags, m.image).toContain(m.tag);
+  for (const t of tags) expect(data.getMemories().some((m) => m.tag === t), t).toBe(true);
 });

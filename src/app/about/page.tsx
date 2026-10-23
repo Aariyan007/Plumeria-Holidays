@@ -18,7 +18,7 @@ export default function AboutPage() {
         <p className="mb-4 text-xs uppercase tracking-[0.3em] text-pink-dark">About us</p>
         <SplitReveal as="h1" immediate className="max-w-5xl font-display text-[clamp(2.5rem,12vw,3rem)] leading-[1.02] md:text-7xl lg:text-8xl">Born in Kochi. Travelling everywhere.</SplitReveal>
         <p className="mt-10 max-w-2xl text-lg text-ink/75">
-          Plumeria Holidays is a Kochi-based travel company crafting tailor-made holidays across Kerala, India and the world, from houseboat nights on Vembanad Lake to group tours through Europe. We handle flights, hotels, transfers and every detail between.
+          Plumeria Holidays is a Kochi-based travel company crafting holidays across India and the world, from houseboat nights in Alleppey to group tours to Dubai, Thailand and Azerbaijan. We handle flights, hotels, transfers and every detail between.
         </p>
       </section>
       <section className="mt-28 grid gap-10 bg-plum px-6 py-24 text-cream md:grid-cols-3 md:px-16">

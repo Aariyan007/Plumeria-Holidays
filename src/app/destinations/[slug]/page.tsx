@@ -33,10 +33,20 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
       <section className="grid gap-12 px-6 py-20 md:grid-cols-2 md:gap-16 md:px-16 md:py-24">
         <p className="font-display text-2xl leading-snug md:text-4xl">{d.story}</p>
         <Reveal>
-          <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-pink-dark">Highlights</h2>
-          <ul className="space-y-3 text-lg">{d.highlights.map((h) => <li key={h} className="border-b border-ink/10 pb-3">{h}</li>)}</ul>
-          <p className="mt-8 text-sm text-ink/70">Best time to visit: <strong className="text-ink">{d.bestTime}</strong></p>
-          <div className="mt-8"><Button href={`/contact?destination=${d.slug}`}>Plan a {d.name} trip</Button></div>
+          {d.highlights.length > 0 && (
+            <>
+              <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-pink-dark">Highlights</h2>
+              <ul className="mb-8 space-y-3 text-lg">{d.highlights.map((h) => <li key={h} className="border-b border-ink/10 pb-3">{h}</li>)}</ul>
+            </>
+          )}
+          {d.bestTime && <p className="mb-8 text-sm text-ink/70">Best time to visit: <strong className="text-ink">{d.bestTime}</strong></p>}
+          {pkgs.length === 0 && (
+            <div className="mb-8 rounded-3xl border border-ink/10 p-6">
+              <p className="text-xs uppercase tracking-[0.3em] text-pink-dark">Itinerary on request</p>
+              <p className="mt-2 text-ink/75">Tell us your dates and who&apos;s travelling, and we&apos;ll send a day-by-day plan for {d.name}.</p>
+            </div>
+          )}
+          <Button href={`/contact?destination=${d.slug}`}>{pkgs.length ? `Plan a ${d.name} trip` : `Enquire about ${d.name}`}</Button>
         </Reveal>
       </section>
       {pkgs.length > 0 && (

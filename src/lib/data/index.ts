@@ -3,7 +3,7 @@ import { packages } from "@/content/packages";
 import { holidayTypes } from "@/content/holidayTypes";
 import { offices } from "@/content/offices";
 import { testimonials } from "@/content/testimonials";
-import { memories } from "@/content/memories";
+import { memories, memoryTags } from "@/content/memories";
 import { heroScenes } from "@/content/heroScenes";
 import { circuits } from "@/content/circuits";
 import { circuitMaps } from "@/content/circuitMaps";
@@ -14,8 +14,6 @@ export * from "./types";
 export const getDestinations = (region?: Region) =>
   region ? destinations.filter((d) => d.region === region) : destinations;
 export const getDestination = (slug: string) => destinations.find((d) => d.slug === slug);
-export const getKeralaDestinations = () =>
-  destinations.filter((d) => d.map).sort((a, b) => a.map!.order - b.map!.order);
 
 export const getPackages = (filter: { region?: Region; type?: HolidayTypeSlug } = {}) =>
   packages.filter(
@@ -26,9 +24,13 @@ export const getFeaturedPackages = () => packages.filter((p) => p.featured);
 export const getPackagesForDestination = (slug: string) => packages.filter((p) => p.destinationSlugs.includes(slug));
 
 export const getHolidayTypes = () => holidayTypes;
+/** Holiday types that have at least one packaged itinerary (for the package filter). */
+export const getPackagedHolidayTypes = () => holidayTypes.filter((t) => packages.some((p) => p.holidayTypes.includes(t.slug)));
 export const getOffices = () => offices;
 export const getTestimonials = () => testimonials;
 export const getMemories = () => memories;
+/** Only tags that have at least one memory, so filter chips never come up empty. */
+export const getMemoryTags = () => memoryTags.filter((t) => memories.some((m) => m.tag === t.slug));
 export const getHeroScenes = () => heroScenes;
 
 /** Circuits joined with their generated map geometry. */

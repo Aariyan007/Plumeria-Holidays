@@ -14,27 +14,30 @@ export const queries = {
   "hero-kochi": "Chinese fishing nets Fort Kochi sunset",
   munnar: "Munnar tea estate",
   alleppey: "Alleppey houseboat backwaters",
-  kovalam: "Kovalam lighthouse beach",
-  thekkady: "Periyar National Park lake",
-  wayanad: "Wayanad landscape",
-  kochi: "Fort Kochi beach fishing nets",
   goa: "Goa beach palm",
   andaman: "Radhanagar beach Havelock",
   kashmir: "Dal Lake shikara",
-  rajasthan: "Taj Mahal",
+  "golden-triangle": "Taj Mahal",
+  hyderabad: "Charminar Hyderabad",
+  coorg: "Abbey Falls Madikeri",
+  manali: "Manali Himachal Pradesh mountains",
+  lakshadweep: "Lakshadweep beach",
   bali: "Bali rice terraces Tegallalang",
   maldives: "Maldives water villas",
   dubai: "Dubai skyline Burj Khalifa",
-  thailand: "Phi Phi island Thailand",
-  vietnam: "Ha Long Bay",
+  thailand: "Pattaya bay beach",
+  vietnam: "Ho Chi Minh City skyline Saigon",
   europe: "Lucerne Chapel Bridge",
+  azerbaijan: "Baku Flame Towers",
+  "hong-kong-macau": "Hong Kong Victoria Harbour skyline",
+  malaysia: "Petronas Twin Towers Kuala Lumpur",
+  singapore: "Marina Bay Sands Singapore",
+  russia: "Moscow Kremlin Red Square",
   "type-honeymoon": "Kerala houseboat sunset",
-  "type-family": "Athirappilly waterfalls",
   "type-houseboat": "Kettuvallam Kerala houseboat",
-  "type-adventure": "Chembra peak trek",
   "type-group": "Kathakali performance",
   "type-cruise": "cruise ship ocean",
-  "memory-1": "Munnar morning mist",
+  "memory-1": "Munnar tea plantation workers",
   "memory-2": "Kerala sadya banana leaf",
   "memory-3": "Mattancherry Jew Town street",
   "memory-4": "Varkala cliff beach",
@@ -62,7 +65,8 @@ async function pick(query, used) {
   for (const p of pages) {
     const ii = p.imageinfo?.[0];
     if (!ii || ii.mime !== "image/jpeg" || used.has(p.title)) continue;
-    if (ii.width < 1800 || ii.width < ii.height * 1.2) continue;
+    // Landscape, but not panoramas: those blur badly when cropped to portrait cards.
+    if (ii.width < 1800 || ii.width < ii.height * 1.2 || ii.width > ii.height * 2) continue;
     const m = ii.extmetadata ?? {};
     const lic = strip(m.LicenseShortName?.value);
     if (!/CC|Public domain|PD/i.test(lic)) continue;
