@@ -18,7 +18,12 @@ export interface Package {
 export interface HolidayType { slug: HolidayTypeSlug; name: string; blurb: string; image: string }
 export interface Office { city: string; role: "HQ" | "Branch" | "International"; contact: string }
 export interface Testimonial { name: string; trip: string; quote: string }
-export interface Memory { image: string; caption: string }
+export type MemoryTag = "hills" | "backwaters" | "beaches" | "culture" | "food";
+export interface Memory {
+  image: string; caption: string; place: string; tag: MemoryTag;
+  /** card shape in the masonry grid */
+  shape: "portrait" | "landscape" | "square";
+}
 export interface HeroScene { id: string; kicker: string; title: string; image: string }
 export interface Circuit {
   id: string; label: string; title: string; packageSlug: string;

@@ -34,7 +34,7 @@ export const queries = {
   "type-adventure": "Chembra peak trek",
   "type-group": "Kathakali performance",
   "type-cruise": "cruise ship ocean",
-  "memory-1": "Munnar morning mist",
+  "memory-1": "Munnar tea plantation workers",
   "memory-2": "Kerala sadya banana leaf",
   "memory-3": "Mattancherry Jew Town street",
   "memory-4": "Varkala cliff beach",
@@ -62,7 +62,8 @@ async function pick(query, used) {
   for (const p of pages) {
     const ii = p.imageinfo?.[0];
     if (!ii || ii.mime !== "image/jpeg" || used.has(p.title)) continue;
-    if (ii.width < 1800 || ii.width < ii.height * 1.2) continue;
+    // Landscape, but not panoramas: those blur badly when cropped to portrait cards.
+    if (ii.width < 1800 || ii.width < ii.height * 1.2 || ii.width > ii.height * 2) continue;
     const m = ii.extmetadata ?? {};
     const lic = strip(m.LicenseShortName?.value);
     if (!/CC|Public domain|PD/i.test(lic)) continue;

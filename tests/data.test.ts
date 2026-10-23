@@ -56,3 +56,9 @@ test("every circuit has map data, a real package, and a note per stop", () => {
     for (const s of c.map.stops) expect(c.notes[s.slug], `${c.id}/${s.slug}`).toBeTruthy();
   }
 });
+
+test("memory filter chips cover every memory and none are empty", () => {
+  const tags = data.getMemoryTags().map((t) => t.slug);
+  for (const m of data.getMemories()) expect(tags, m.image).toContain(m.tag);
+  for (const t of tags) expect(data.getMemories().some((m) => m.tag === t), t).toBe(true);
+});

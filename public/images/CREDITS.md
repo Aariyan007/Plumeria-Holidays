@@ -28,11 +28,11 @@ Placeholder photography from Wikimedia Commons. Replace with Plumeria Holidays' 
 - `type-adventure.jpg`: [File:Chembra Peak Heart Lake.jpg](https://commons.wikimedia.org/wiki/File:Chembra_Peak_Heart_Lake.jpg) by Ravi Dwivedi, CC BY-SA 4.0
 - `type-group.jpg`: [File:Kathakali performance (2023) 02.jpg](https://commons.wikimedia.org/wiki/File:Kathakali_performance_(2023)_02.jpg) by Vis M, CC0
 - `type-cruise.jpg`: [File:Ocean Diamond cruise ship at Djúpivogur harbour.jpg](https://commons.wikimedia.org/wiki/File:Ocean_Diamond_cruise_ship_at_Dj%C3%BApivogur_harbour.jpg) by Alexander Grebenkov, CC BY 3.0
-- `memory-1.jpg`: [File:Munnar tea gardens.jpg](https://commons.wikimedia.org/wiki/File:Munnar_tea_gardens.jpg) by unknown, Public domain
+- `memory-1.jpg`: [File:Munnar Tea Tractor.jpg](https://commons.wikimedia.org/wiki/File:Munnar_Tea_Tractor.jpg) by Kondephy, CC BY-SA 4.0
 - `memory-2.jpg`: [File:Sadya-Aluva-Kerala-IMG 20210320 204506.jpg](https://commons.wikimedia.org/wiki/File:Sadya-Aluva-Kerala-IMG_20210320_204506.jpg) by Ranjithsiji, CC BY-SA 4.0
 - `memory-3.jpg`: [File:Jew Street Mattancherry, Fort Kochi, Ernakulam, Kerala, India IMG 20190526 150110.jpg](https://commons.wikimedia.org/wiki/File:Jew_Street_Mattancherry,_Fort_Kochi,_Ernakulam,_Kerala,_India_IMG_20190526_150110.jpg) by Ranjithsiji, CC BY-SA 4.0
 - `memory-4.jpg`: [File:Varkala Cliff by KS.jpg](https://commons.wikimedia.org/wiki/File:Varkala_Cliff_by_KS.jpg) by Krissubh, CC BY-SA 4.0
 - `memory-5.jpg`: [File:Elephants - 2008 Kerala festival.jpg](https://commons.wikimedia.org/wiki/File:Elephants_-_2008_Kerala_festival.jpg) by spisharam, CC BY 2.0
-- `memory-6.jpg`: [File:Kumarakom backwaters panorama.jpg](https://commons.wikimedia.org/wiki/File:Kumarakom_backwaters_panorama.jpg) by Vis M, CC BY-SA 4.0
+- `memory-6.jpg`: [File:Kumarakom backwaters 02.jpg](https://commons.wikimedia.org/wiki/File:Kumarakom_backwaters_02.jpg) by Vis M, CC BY-SA 4.0
 - `memory-7.jpg`: [File:Eravikulam National Park-WUS07189.jpg](https://commons.wikimedia.org/wiki/File:Eravikulam_National_Park-WUS07189.jpg) by Rainer Halama, CC BY-SA 4.0
 - `memory-8.jpg`: [File:Kerala backwater 20080218-11.jpg](https://commons.wikimedia.org/wiki/File:Kerala_backwater_20080218-11.jpg) by Hans A. Rosbach, CC BY-SA 3.0

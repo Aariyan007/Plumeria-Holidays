@@ -3,7 +3,7 @@ import { packages } from "@/content/packages";
 import { holidayTypes } from "@/content/holidayTypes";
 import { offices } from "@/content/offices";
 import { testimonials } from "@/content/testimonials";
-import { memories } from "@/content/memories";
+import { memories, memoryTags } from "@/content/memories";
 import { heroScenes } from "@/content/heroScenes";
 import { circuits } from "@/content/circuits";
 import { circuitMaps } from "@/content/circuitMaps";
@@ -29,6 +29,8 @@ export const getHolidayTypes = () => holidayTypes;
 export const getOffices = () => offices;
 export const getTestimonials = () => testimonials;
 export const getMemories = () => memories;
+/** Only tags that have at least one memory, so filter chips never come up empty. */
+export const getMemoryTags = () => memoryTags.filter((t) => memories.some((m) => m.tag === t.slug));
 export const getHeroScenes = () => heroScenes;
 
 /** Circuits joined with their generated map geometry. */
