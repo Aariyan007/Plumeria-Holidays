@@ -15,6 +15,8 @@ export interface ItineraryDay {
 }
 export interface Package {
   slug: string; title: string; destinationSlugs: string[]; region: Region; durationDays: number;
+  /** main stops in itinerary order */
+  route: string[];
   holidayTypes: HolidayTypeSlug[]; priceFrom?: number; summary: string;
   itinerary: ItineraryDay[]; inclusions?: string[]; exclusions?: string[]; image: string; featured?: boolean;
 }

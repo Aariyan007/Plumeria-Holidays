@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { getDestination, getPackage, getPackages } from "@/lib/data";
+import { getPackage, getPackages } from "@/lib/data";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
@@ -28,7 +28,7 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
         <div className="absolute inset-0 bg-gradient-to-t from-ink/80 to-transparent" />
         <div className="absolute bottom-14 left-6 right-6 md:left-16">
           <p className="mb-3 text-xs uppercase tracking-[0.35em] text-yellow">
-            {p.durationDays} days · {p.destinationSlugs.map((s) => getDestination(s)?.name).join(" · ")}
+            {p.durationDays} days · {p.route.join(" → ")}
           </p>
           <SplitReveal as="h1" immediate className="font-display text-[clamp(2.25rem,11vw,3rem)] leading-[0.95] md:text-7xl lg:text-8xl">{p.title}</SplitReveal>
         </div>
