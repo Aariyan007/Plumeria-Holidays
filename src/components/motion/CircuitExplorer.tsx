@@ -9,6 +9,46 @@ import { routeThrough } from "./route";
 
 type CircuitWithMap = Circuit & { map: CircuitMapData };
 
+/**
+ * Framed maps are cut to a tight box around the stops, which leaves them floating inside one state with no
+ * borders in sight. Zoom out around the stops (the outlines run well past the generated box) so the
+ * neighbouring borders give the route a context; untouched maps keep their own box.
+ */
+function viewFor(map: CircuitMapData) {
+  const [, , w0, h0] = map.viewBox.split(" ").map(Number);
+  if (!map.framed) return { x: -60, y: -10, w: w0 + 120, h: h0 + 20 }; // side room for the stop labels
+  const xs = map.stops.map((s) => s.x), ys = map.stops.map((s) => s.y);
+  const cx = (Math.min(...xs) + Math.max(...xs)) / 2, cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+  const w = Math.max((Math.max(...xs) - Math.min(...xs)) * 1.9, (Math.max(...ys) - Math.min(...ys)) * 1.6 / 0.8, 560), h = w * 0.8;
+  return { x: cx - w / 2, y: cy - h / 2, w, h };
+}
+
+/**
+ * Pins at their true spot can sit on top of each other (Pattaya and Coral Island are 10 km apart), so push
+ * any pair closer than `gap` apart, and put each label on the side away from its nearest neighbour.
+ */
+function placePins(stops: CircuitMapData["stops"], gap: number, view: { x: number; w: number }, k: number) {
+  const pts = stops.map((s) => ({ ...s }));
+  for (let pass = 0; pass < 4; pass++)
+    for (let i = 0; i < pts.length; i++)
+      for (let j = i + 1; j < pts.length; j++) {
+        const a = pts[i], b = pts[j];
+        const dx = b.x - a.x || 0.01, dy = b.y - a.y, d = Math.hypot(dx, dy);
+        if (d >= gap) continue;
+        const push = (gap - d) / 2 / d;
+        a.x -= dx * push; a.y -= dy * push; b.x += dx * push; b.y += dy * push;
+      }
+  return pts.map((p) => {
+    const near = pts.filter((q) => q !== p).sort((q, r) => Math.hypot(q.x - p.x, q.y - p.y) - Math.hypot(r.x - p.x, r.y - p.y))[0];
+    // ...unless that side runs off the map (label width estimated at ~8px a character).
+    const width = (20 + p.name.length * 8) * k;
+    const left = !!near && near.x > p.x;
+    if (left && p.x - width < view.x) return { ...p, labelLeft: false };
+    if (!left && p.x + width > view.x + view.w) return { ...p, labelLeft: true };
+    return { ...p, labelLeft: left };
+  });
+}
+
 /** Signature circuits: tabs swap the country map; outline, route and numbered stops draw in. No scroll pinning. */
 export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
   const root = useRef<HTMLElement>(null);
@@ -16,7 +56,10 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
   const [hover, setHover] = useState<string | null>(null);
   const seen = useRef(false);
   const c = circuits.find((x) => x.id === activeId)!;
-  const route = routeThrough(c.map.stops);
+  const v = viewFor(c.map);
+  const k = v.w / 500; // keeps pins and labels the same on-screen size at any zoom
+  const pins = placePins(c.map.stops, 30 * k, v, k);
+  const route = routeThrough(pins);
 
   useGSAP(() => {
     if (prefersReducedMotion()) return;
@@ -54,28 +97,31 @@ export function CircuitExplorer({ circuits }: { circuits: CircuitWithMap[] }) {
       </div>
 
       <div className="mt-14 grid items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
-        <svg key={c.id} viewBox={c.map.viewBox} className="mx-auto max-h-[55svh] w-full lg:max-h-[70svh]" role="img" aria-label={`Map of the ${c.label} circuit`}>
+        <svg key={c.id} viewBox={`${v.x} ${v.y} ${v.w} ${v.h}`} className="mx-auto max-h-[55svh] w-full overflow-hidden lg:max-h-[70svh]" role="img" aria-label={`Map of the ${c.label} circuit`}>
           {c.map.framed && (
-            // Cropped regions would end in a hard rectangle; fade the land out towards the edges instead.
+            // Cropped regions would end in a hard rectangle; fade the land out only near the edges.
             <defs>
               <radialGradient id={`cx-fade-g-${c.id}`} r="0.5">
-                <stop offset="0.55" stopColor="#fff" />
+                <stop offset="0.6" stopColor="#fff" />
                 <stop offset="1" stopColor="#000" />
               </radialGradient>
-              <mask id={`cx-fade-${c.id}`}>
-                <rect width="100%" height="100%" fill={`url(#cx-fade-g-${c.id})`} />
+              <mask id={`cx-fade-${c.id}`} maskUnits="userSpaceOnUse" x={v.x} y={v.y} width={v.w} height={v.h}>
+                <rect x={v.x} y={v.y} width={v.w} height={v.h} fill={`url(#cx-fade-g-${c.id})`} />
               </mask>
             </defs>
           )}
           <g mask={c.map.framed ? `url(#cx-fade-${c.id})` : undefined}>
-            <path className="cx-fill" d={c.map.outline} fill="#FFF8F0" fillOpacity="0.07" />
-            <path className="cx-outline" d={c.map.outline} fill="none" stroke="#FFF8F0" strokeOpacity="0.7" strokeWidth="1.2" strokeLinejoin="round" />
+            <path className="cx-fill" d={c.map.outline} fill="#FFF8F0" fillOpacity="0.1" />
+            <path className="cx-outline" d={c.map.outline} fill="none" stroke="#FFF8F0" strokeOpacity="0.55" strokeWidth="1.2" strokeLinejoin="round" vectorEffect="non-scaling-stroke" />
           </g>
-          <path className="cx-route" d={route} fill="none" stroke="#F7C548" strokeWidth="3" strokeLinecap="round" strokeDasharray="1 0" />
-          {c.map.stops.map((s, i) => (
+          <path className="cx-route" d={route} fill="none" stroke="#F7C548" strokeWidth="3" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+          {pins.map((s, i) => (
             <g key={s.slug} className="cx-pin">
-              <circle cx={s.x} cy={s.y} r={hover === s.slug ? 20 : 15} fill={hover === s.slug ? "#F7C548" : "#EC5B8C"} className="transition-all duration-300" />
-              <text x={s.x} y={s.y + 5} textAnchor="middle" fontSize="14" fontWeight="700" fill="#2A1420">{i + 1}</text>
+              <circle cx={s.x} cy={s.y} r={(hover === s.slug ? 17 : 13) * k} fill={hover === s.slug ? "#F7C548" : "#EC5B8C"} stroke="#2E5E3E" strokeWidth={3 * k} className="transition-all duration-300" />
+              <text x={s.x} y={s.y + 4.5 * k} textAnchor="middle" fontSize={13 * k} fontWeight="700" fill="#2A1420">{i + 1}</text>
+              <text x={s.labelLeft ? s.x - 20 * k : s.x + 20 * k} y={s.y + 5 * k}
+                textAnchor={s.labelLeft ? "end" : "start"} fontSize={14 * k} fontWeight="600" fill="#FFF8F0"
+                stroke="#2E5E3E" strokeWidth={4 * k} strokeLinejoin="round" paintOrder="stroke">{s.name}</text>
             </g>
           ))}
         </svg>

@@ -31,8 +31,8 @@ export function HolidayTypesGrid() {
           <Link key={t.slug} href={`/holiday-types#${t.slug}`} className="group relative block aspect-[4/3] overflow-hidden rounded-3xl lg:aspect-[3/4]" data-cursor>
             <Image src={t.image} alt="" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink/85 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <h3 className="font-display text-3xl">{t.name}</h3>
+            <div className="absolute bottom-6 left-6 right-6 lg:bottom-5 lg:left-5 lg:right-5">
+              <h3 className="font-display text-3xl lg:text-2xl xl:text-3xl">{t.name}</h3>
               {/* Hover-to-reveal only where hover exists; touch tablets always show the blurb. */}
               <p className="mt-1 text-sm text-cream/85 pointer-fine:max-h-0 pointer-fine:overflow-hidden pointer-fine:transition-all pointer-fine:duration-500 pointer-fine:group-hover:max-h-20">{t.blurb}</p>
             </div>

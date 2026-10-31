@@ -5,7 +5,7 @@ import type { Package } from "@/lib/data/types";
 const BLD = "Breakfast, Lunch, Dinner";
 
 export const packages: Package[] = [
-  { slug: "golden-triangle-5d", title: "Delhi, Agra & Jaipur", destinationSlugs: ["golden-triangle"], region: "domestic", durationDays: 5,
+  { slug: "golden-triangle-5d", title: "Delhi, Agra & Jaipur", destinationSlugs: ["golden-triangle"], region: "domestic", durationDays: 5, route: ["Delhi", "Agra", "Jaipur"],
     holidayTypes: ["group"], featured: true, image: "/images/golden-triangle.jpg",
     summary: "The Golden Triangle from Kochi: Delhi's monuments, the Taj Mahal at sunrise and the forts and palaces of Jaipur.",
     itinerary: [
@@ -18,7 +18,7 @@ export const packages: Package[] = [
     inclusions: ["Airport reception", "Hotel stays", "Transfers between cities", "Sightseeing as listed", "Meals as per day plan"],
     exclusions: ["Lunch on Day 5"] },
 
-  { slug: "kashmir-5d", title: "Kashmir", destinationSlugs: ["kashmir"], region: "domestic", durationDays: 5,
+  { slug: "kashmir-5d", title: "Kashmir", destinationSlugs: ["kashmir"], region: "domestic", durationDays: 5, route: ["Srinagar", "Gulmarg", "Pahalgam"],
     holidayTypes: ["group"], image: "/images/kashmir.jpg",
     summary: "Srinagar, Gulmarg and Pahalgam, with a shikara ride on Dal Lake.",
     itinerary: [
@@ -31,7 +31,7 @@ export const packages: Package[] = [
     inclusions: ["Hotel stays in Srinagar, Gulmarg & Pahalgam", "Meals as per day plan", "Airport transfers"],
     exclusions: ["Gulmarg cable car & pony rides", "Ponies / local transport to Aru, Betaab Valley & Chandanwari"] },
 
-  { slug: "thailand-4d", title: "Thailand", destinationSlugs: ["thailand"], region: "international", durationDays: 4,
+  { slug: "thailand-4d", title: "Thailand", destinationSlugs: ["thailand"], region: "international", durationDays: 4, route: ["Pattaya", "Coral Island", "Bangkok"],
     holidayTypes: ["group"], featured: true, image: "/images/thailand.jpg",
     summary: "Pattaya and Bangkok: Coral Island, Safari World and the Buddha temples, with all meals.",
     itinerary: [
@@ -42,7 +42,7 @@ export const packages: Package[] = [
     ],
     inclusions: ["Hotel stays", "All meals as listed", "Guide on arrival", "Safari World entry"] },
 
-  { slug: "vietnam-5d", title: "Vietnam", destinationSlugs: ["vietnam"], region: "international", durationDays: 5,
+  { slug: "vietnam-5d", title: "Vietnam", destinationSlugs: ["vietnam"], region: "international", durationDays: 5, route: ["Ho Chi Minh City", "Cu Chi", "Ben Tre"],
     holidayTypes: [], featured: true, image: "/images/vietnam.jpg",
     summary: "Ho Chi Minh City, the Cu Chi Tunnels and a day in the Mekong Delta.",
     itinerary: [
@@ -54,7 +54,7 @@ export const packages: Package[] = [
     ],
     inclusions: ["Hotel stays", "Meals as per day plan", "Airport transfers with guide & driver"] },
 
-  { slug: "bali-5d", title: "Bali", destinationSlugs: ["bali"], region: "international", durationDays: 5,
+  { slug: "bali-5d", title: "Bali", destinationSlugs: ["bali"], region: "international", durationDays: 5, route: ["Kuta", "Uluwatu", "Ubud", "Nusa Penida"],
     holidayTypes: [], image: "/images/bali.jpg",
     summary: "Kuta, Uluwatu's Kecak fire dance, Ubud and Kintamani, and a speedboat day on Nusa Penida.",
     itinerary: [
@@ -67,7 +67,7 @@ export const packages: Package[] = [
     inclusions: ["Hotel stays", "Daily breakfast", "Selected lunches & dinners", "Private airport transfers & sightseeing transport", "Guided sightseeing", "Entry tickets & cultural shows", "Taxes"],
     exclusions: ["International airfare", "Visa & travel insurance", "Personal expenses & optional activities", "Tips and meals not mentioned"] },
 
-  { slug: "dubai-5d", title: "Dazzling Dubai", destinationSlugs: ["dubai"], region: "international", durationDays: 5,
+  { slug: "dubai-5d", title: "Dazzling Dubai", destinationSlugs: ["dubai"], region: "international", durationDays: 5, route: ["Abu Dhabi", "Dubai", "Sharjah"],
     holidayTypes: ["group"], image: "/images/dubai.jpg",
     summary: "Abu Dhabi, Dubai and Sharjah: Burj Khalifa, a dhow cruise, a desert safari and Global Village.",
     itinerary: [
@@ -78,7 +78,7 @@ export const packages: Package[] = [
       { day: 5, title: "Sharjah & departure", meals: BLD, blurb: "Shopping and a Sharjah city tour, then Sharjah Airport." },
     ] },
 
-  { slug: "azerbaijan-6d", title: "Azerbaijan", destinationSlugs: ["azerbaijan"], region: "international", durationDays: 6,
+  { slug: "azerbaijan-6d", title: "Azerbaijan", destinationSlugs: ["azerbaijan"], region: "international", durationDays: 6, route: ["Baku", "Gabala", "Gobustan"],
     holidayTypes: ["group"], featured: true, image: "/images/azerbaijan.jpg",
     summary: "Baku, Gabala's mountain lakes, Gobustan's mud volcanoes and the fire mountain of Yanardag.",
     itinerary: [
@@ -90,7 +90,7 @@ export const packages: Package[] = [
       { day: 6, title: "Departure", meals: "Breakfast, Lunch", blurb: "Check out and airport drop." },
     ] },
 
-  { slug: "hong-kong-macau-5d", title: "Hong Kong & Macau", destinationSlugs: ["hong-kong-macau"], region: "international", durationDays: 5,
+  { slug: "hong-kong-macau-5d", title: "Hong Kong & Macau", destinationSlugs: ["hong-kong-macau"], region: "international", durationDays: 5, route: ["Macau", "Hong Kong"],
     holidayTypes: ["group"], featured: true, image: "/images/hong-kong-macau.jpg",
     summary: "Macau's heritage, Victoria Peak by night, a day at Disneyland and a day at Ocean Park.",
     itinerary: [
@@ -101,7 +101,7 @@ export const packages: Package[] = [
       { day: 5, title: "Departure", meals: "Breakfast", blurb: "Check out and transfer to the airport." },
     ] },
 
-  { slug: "malaysia-5d", title: "Malaysia", destinationSlugs: ["malaysia"], region: "international", durationDays: 5,
+  { slug: "malaysia-5d", title: "Malaysia", destinationSlugs: ["malaysia"], region: "international", durationDays: 5, route: ["Kuala Lumpur", "Langkawi"],
     holidayTypes: ["group"], featured: true, image: "/images/malaysia.jpg",
     summary: "Kuala Lumpur's landmarks, then Langkawi's beaches, cable car and islands.",
     itinerary: [
@@ -111,7 +111,7 @@ export const packages: Package[] = [
     ],
     inclusions: ["Return flights with baggage", "Hotels in Kuala Lumpur & Langkawi", "Daily breakfast & selected meals", "Airport transfers & local transport", "Sightseeing & entry tickets as listed", "Tour assistance"] },
 
-  { slug: "hyderabad-3d", title: "Hyderabad", destinationSlugs: ["hyderabad"], region: "domestic", durationDays: 3,
+  { slug: "hyderabad-3d", title: "Hyderabad", destinationSlugs: ["hyderabad"], region: "domestic", durationDays: 3, route: ["Hyderabad", "Ramoji Film City"],
     holidayTypes: [], image: "/images/hyderabad.jpg",
     summary: "Charminar, Golconda Fort, Hussain Sagar and a full day at Ramoji Film City.",
     itinerary: [
