@@ -6,9 +6,24 @@ export const inquirySchema = z.object({
   email: z.union([z.literal(""), z.email("Enter a valid email")]).optional(),
   message: z.string().trim().max(2000).optional(),
   packageSlug: z.string().optional(),
-  website: z.string().max(0, "Spam detected").optional(), // honeypot
 });
 export type Inquiry = z.infer<typeof inquirySchema>;
+
+/** People take a few seconds to fill the form; bots post it instantly. */
+export const MIN_FILL_MS = 3000;
+
+/**
+ * Bot check, run before validation: the hidden `website` field is filled, or the form was sent faster than a person
+ * could (`startedAt` is stamped when the form renders). Callers should answer spam with a normal success so bots
+ * learn nothing, and simply not deliver it.
+ */
+export function isSpam(input: unknown, now = Date.now()): boolean {
+  if (!input || typeof input !== "object") return false; // left to validation
+  const { website, startedAt } = input as { website?: unknown; startedAt?: unknown };
+  if (typeof website === "string" && website.trim() !== "") return true;
+  const started = Number(startedAt);
+  return !Number.isFinite(started) || now - started < MIN_FILL_MS;
+}
 
 export function validateInquiry(input: unknown):
   | { ok: true; data: Inquiry }

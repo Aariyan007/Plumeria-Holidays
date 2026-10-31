@@ -1,11 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Errors = Record<string, string>;
 
 export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessage?: string; packageSlug?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errors, setErrors] = useState<Errors>({});
+  // When the form appeared, for the server's "too fast to be a person" check. Set after mount so SSR and hydration match.
+  const [startedAt, setStartedAt] = useState("");
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setStartedAt(String(Date.now())), []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -55,8 +59,12 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
         <textarea id="message" name="message" rows={5} defaultValue={defaultMessage} className={field} />
         {err("message")}
       </div>
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {errors.website && <p className="text-sm text-pink-dark">Something went wrong. Please call us instead.</p>}
+      {/* Honeypot: off-screen rather than display:none, which many bots skip. People never see or tab to it. */}
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" type="text" name="website" tabIndex={-1} autoComplete="off" />
+      </div>
+      <input type="hidden" name="startedAt" value={startedAt} />
       {status === "error" && <p role="alert" className="text-sm text-pink-dark">Couldn&apos;t send. Check your connection or WhatsApp us.</p>}
       <button disabled={status === "sending"} className="rounded-full bg-pink px-8 py-4 font-semibold text-ink transition-colors hover:bg-plum hover:text-cream disabled:opacity-60">
         {status === "sending" ? "Sending..." : "Send enquiry"}
