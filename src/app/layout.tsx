@@ -8,6 +8,7 @@ import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Cursor } from "@/components/motion/Cursor";
 import { Preloader } from "@/components/motion/Preloader";
 import { TransitionOverlay } from "@/components/motion/TransitionOverlay";
+import { Walker } from "@/components/motion/Walker";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { travelAgencyLd } from "@/lib/seo";
 import "./globals.css";
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div id="main">{children}</div>
         <Footer />
         <WhatsAppButton />
+        <Walker />
       </body>
     </html>
   );
