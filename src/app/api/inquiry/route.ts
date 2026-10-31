@@ -1,8 +1,15 @@
 import { NextResponse } from "next/server";
 import { validateInquiry } from "@/lib/inquiry";
 
+// A real enquiry is a few hundred bytes; refuse anything far bigger before parsing it.
+const MAX_BODY = 8 * 1024;
+
 export async function POST(req: Request) {
-  const body = await req.json().catch(() => null);
+  if (Number(req.headers.get("content-length") ?? 0) > MAX_BODY)
+    return NextResponse.json({ ok: false, errors: { form: "Message too long" } }, { status: 413 });
+  const text = await req.text();
+  if (text.length > MAX_BODY) return NextResponse.json({ ok: false, errors: { form: "Message too long" } }, { status: 413 });
+  const body = (() => { try { return JSON.parse(text); } catch { return null; } })();
   const r = validateInquiry(body);
   if (!r.ok) return NextResponse.json(r, { status: 400 });
   // Phase 2: deliver by email / CRM and lead scoring. For now, log server-side.
