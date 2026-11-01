@@ -33,8 +33,8 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
       </div>
     );
 
-  const field = "w-full rounded-2xl border border-ink/20 bg-white/70 px-5 py-4 outline-none focus:border-plum";
-  const err = (k: string) => errors[k] && <p id={`${k}-err`} className="mt-1 text-sm text-pink-dark">{errors[k]}</p>;
+  const field = "w-full rounded-2xl border border-fg/20 bg-card/70 px-5 py-4 outline-none focus:border-heading";
+  const err = (k: string) => errors[k] && <p id={`${k}-err`} className="mt-1 text-sm text-accent">{errors[k]}</p>;
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-5">
       <div>
@@ -65,7 +65,7 @@ export function ContactForm({ defaultMessage = "", packageSlug }: { defaultMessa
         <input id="website" type="text" name="website" tabIndex={-1} autoComplete="off" />
       </div>
       <input type="hidden" name="startedAt" value={startedAt} />
-      {status === "error" && <p role="alert" className="text-sm text-pink-dark">Couldn&apos;t send. Check your connection or WhatsApp us.</p>}
+      {status === "error" && <p role="alert" className="text-sm text-accent">Couldn&apos;t send. Check your connection or WhatsApp us.</p>}
       <button disabled={status === "sending"} className="rounded-full bg-pink px-8 py-4 font-semibold text-ink transition-colors hover:bg-plum hover:text-cream disabled:opacity-60">
         {status === "sending" ? "Sending..." : "Send enquiry"}
       </button>

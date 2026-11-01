@@ -39,10 +39,10 @@ export function DestinationExplorer({ destinations }: { destinations: Destinatio
   return (
     <section ref={root} className="grid gap-12 px-6 py-28 md:px-16 lg:grid-cols-[1fr_2fr]" aria-label="Destinations">
       <div className="lg:sticky lg:top-32 lg:h-fit">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">Where to next</p>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Where to next</p>
         <h2 className="font-display text-[clamp(2.5rem,12vw,3rem)] leading-none md:text-6xl xl:text-7xl">Places we know by heart</h2>
-        <p className="mt-6 max-w-sm text-ink/70">From misty tea hills to island lagoons, every place here is one we&apos;ve walked, tasted and planned a hundred times.</p>
-        <Link href="/destinations" className="mt-8 inline-block underline underline-offset-4 hover:text-pink-dark">All destinations</Link>
+        <p className="mt-6 max-w-sm text-fg/70">From misty tea hills to island lagoons, every place here is one we&apos;ve walked, tasted and planned a hundred times.</p>
+        <Link href="/destinations" className="mt-8 inline-block underline underline-offset-4 hover:text-accent">All destinations</Link>
       </div>
       <div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 sm:gap-y-14">
         {destinations.map((d, i) => (
@@ -55,8 +55,8 @@ export function DestinationExplorer({ destinations }: { destinations: Destinatio
               </div>
               <span className="absolute left-3 top-3 rounded-full bg-cream/90 px-2.5 py-1 text-xs font-semibold text-ink sm:left-4 sm:top-4 sm:px-3">0{i + 1}</span>
             </div>
-            <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-ink/60 sm:mt-4 sm:text-xs sm:tracking-[0.3em]">{d.tagline}</p>
-            <h3 className="font-display text-xl transition-colors group-hover:text-pink-dark sm:text-3xl">{d.name}</h3>
+            <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-fg/60 sm:mt-4 sm:text-xs sm:tracking-[0.3em]">{d.tagline}</p>
+            <h3 className="font-display text-xl transition-colors group-hover:text-accent sm:text-3xl">{d.name}</h3>
           </Link>
         ))}
       </div>

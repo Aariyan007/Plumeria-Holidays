@@ -21,10 +21,10 @@ export default function HolidayTypesPage() {
               </div>
               <div>
                 <h2 className="font-display text-4xl lg:text-5xl">{t.name}</h2>
-                <p className="mt-4 text-lg text-ink/75">{t.blurb}</p>
+                <p className="mt-4 text-lg text-fg/75">{t.blurb}</p>
                 <ul className="mt-5 flex flex-wrap gap-2">
                   {t.destinationSlugs.map((s) => getDestination(s)).filter((d) => d !== undefined).map((d) => (
-                    <li key={d.slug}><Link href={`/destinations/${d.slug}`} className="inline-block rounded-full border border-ink/15 px-3 py-1.5 text-sm transition-colors hover:border-plum hover:text-plum">{d.name}</Link></li>
+                    <li key={d.slug}><Link href={`/destinations/${d.slug}`} className="inline-block rounded-full border border-fg/15 px-3 py-1.5 text-sm transition-colors hover:border-heading hover:text-heading">{d.name}</Link></li>
                   ))}
                 </ul>
                 <div className="mt-8">

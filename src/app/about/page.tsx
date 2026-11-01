@@ -15,9 +15,9 @@ export default function AboutPage() {
   return (
     <main className="pb-24 pt-40">
       <section className="px-6 md:px-16">
-        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-pink-dark">About us</p>
+        <p className="mb-4 text-xs uppercase tracking-[0.3em] text-accent">About us</p>
         <SplitReveal as="h1" immediate className="max-w-5xl font-display text-[clamp(2.5rem,12vw,3rem)] leading-[1.02] md:text-7xl lg:text-8xl">Born in Kochi. Travelling everywhere.</SplitReveal>
-        <p className="mt-10 max-w-2xl text-lg text-ink/75">
+        <p className="mt-10 max-w-2xl text-lg text-fg/75">
           Plumeria Holidays is a Kochi-based travel company crafting holidays across India and the world, from houseboat nights in Alleppey to group tours to Dubai, Thailand and Azerbaijan. We handle flights, hotels, transfers and every detail between.
         </p>
       </section>
@@ -31,8 +31,8 @@ export default function AboutPage() {
         <Reveal className="mt-12 grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {getOffices().map((o) => (
             // Phones: one compact row per office (city left, role right). Wider: stacked cards.
-            <div key={o.city} className="flex flex-row-reverse items-baseline justify-between gap-4 rounded-2xl border border-ink/10 px-5 py-4 sm:block sm:rounded-3xl sm:p-6">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-pink-dark sm:text-xs sm:tracking-[0.3em]">{o.role}</p>
+            <div key={o.city} className="flex flex-row-reverse items-baseline justify-between gap-4 rounded-2xl border border-fg/10 px-5 py-4 sm:block sm:rounded-3xl sm:p-6">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-accent sm:text-xs sm:tracking-[0.3em]">{o.role}</p>
               {/* lg drops a step so Ahmedabad fits a quarter-width card at 1024px. */}
               <p className="font-display text-xl sm:mt-2 sm:text-2xl lg:text-xl xl:text-3xl">{o.city}</p>
             </div>

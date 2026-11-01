@@ -16,12 +16,12 @@ export default function MemoriesPage() {
     <main className="pb-24 pt-32 md:pt-40">
       <section className="grid items-center gap-10 px-6 md:px-16 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
         <div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">Memories</p>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Memories</p>
           <SplitReveal as="h1" immediate className="font-display text-[clamp(2.5rem,12vw,3rem)] leading-[1.02] md:text-6xl lg:text-[3.5rem] xl:text-7xl">Moments our travellers brought home</SplitReveal>
-          <p className="mt-6 max-w-lg text-lg text-ink/75">Houseboat sunsets, sadya lunches, misty tea hills. A scrapbook of the little things that made each trip.</p>
-          <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm uppercase tracking-[0.2em] text-ink/60">
-            <span><strong className="font-display text-2xl tracking-normal text-plum">{memories.length}</strong> moments</span>
-            <span><strong className="font-display text-2xl tracking-normal text-plum">{places}</strong> places</span>
+          <p className="mt-6 max-w-lg text-lg text-fg/75">Houseboat sunsets, sadya lunches, misty tea hills. A scrapbook of the little things that made each trip.</p>
+          <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm uppercase tracking-[0.2em] text-fg/60">
+            <span><strong className="font-display text-2xl tracking-normal text-heading">{memories.length}</strong> moments</span>
+            <span><strong className="font-display text-2xl tracking-normal text-heading">{places}</strong> places</span>
           </p>
         </div>
         <PolaroidStack photos={[memories[3], memories[0], memories[5]]} />

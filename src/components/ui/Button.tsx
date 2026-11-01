@@ -5,7 +5,7 @@ export function Button({ href, children, variant = "primary", external = false }
   { href: string; children: React.ReactNode; variant?: "primary" | "ghost"; external?: boolean }) {
   const cls = variant === "primary"
     ? "bg-pink text-ink hover:bg-plum hover:text-cream"
-    : "border border-current hover:bg-ink hover:text-cream";
+    : "border border-current hover:bg-fg hover:text-page";
   const props = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return (
     <Magnetic>

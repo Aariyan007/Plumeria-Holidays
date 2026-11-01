@@ -36,20 +36,20 @@ export default async function PackagePage({ params }: PageProps<"/packages/[slug
       <section className="grid gap-12 px-6 py-20 md:px-16 md:py-24 lg:grid-cols-[2fr_1fr] lg:gap-16">
         <div>
           <p className="font-display text-2xl md:text-3xl">{p.summary}</p>
-          <ol className="relative mt-14 space-y-10 border-l border-ink/15 pl-8">
+          <ol className="relative mt-14 space-y-10 border-l border-fg/15 pl-8">
             {p.itinerary.map((d) => (
               <li key={d.day} className="relative">
                 <span className="absolute -left-[39px] top-1.5 h-3 w-3 rounded-full bg-pink" aria-hidden />
                 <Reveal>
-                  <p className="text-xs uppercase tracking-[0.3em] text-pink-dark">{d.label ?? `Day ${d.day}`}</p>
+                  <p className="text-xs uppercase tracking-[0.3em] text-accent">{d.label ?? `Day ${d.day}`}</p>
                   <h2 className="mt-1 font-display text-2xl">{d.title}</h2>
-                  <p className="mt-1 text-ink/70">{d.blurb}</p>
-                  {d.meals && <p className="mt-2 text-sm text-ink/55">Meals: {d.meals}</p>}
+                  <p className="mt-1 text-fg/70">{d.blurb}</p>
+                  {d.meals && <p className="mt-2 text-sm text-fg/55">Meals: {d.meals}</p>}
                 </Reveal>
               </li>
             ))}
           </ol>
-          {p.itinerary.some((d) => d.label) && <p className="mt-8 text-sm text-ink/60">A typical outline; we&apos;ll send the exact day-by-day with your quote.</p>}
+          {p.itinerary.some((d) => d.label) && <p className="mt-8 text-sm text-fg/60">A typical outline; we&apos;ll send the exact day-by-day with your quote.</p>}
         </div>
         <aside className="h-fit rounded-3xl bg-plum p-6 text-cream sm:p-8 lg:sticky lg:top-28">
           <h2 className="text-xs uppercase tracking-[0.3em] text-yellow">Included</h2>

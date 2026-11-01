@@ -36,16 +36,16 @@ export function PickedForYou() {
   if (failed) return null;
   return (
     <section ref={root} className="px-6 py-24 md:px-16" aria-labelledby="pfy-title" aria-busy={!picks}>
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">Picked for you</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">Picked for you</p>
       <h2 id="pfy-title" className="mt-3 min-h-[1.1em] max-w-3xl font-display text-[clamp(1.875rem,8vw,2.5rem)] leading-[1.05] md:text-5xl">
-        {picks?.title ?? <span className="inline-block h-[0.9em] w-2/3 animate-pulse rounded-xl bg-ink/10 align-middle" />}
+        {picks?.title ?? <span className="inline-block h-[0.9em] w-2/3 animate-pulse rounded-xl bg-fg/10 align-middle" />}
       </h2>
       <div className={`mt-10 ${GRID}`}>
         {picks
           ? picks.items.map((d) => (
             <div key={d.slug} className="pfy-card flex min-w-0 [&>a]:flex-1"><DestinationCard d={d} days={d.days} /></div>
           ))
-          : Array.from({ length: 6 }, (_, i) => <div key={i} className="animate-pulse rounded-3xl bg-ink/10" />)}
+          : Array.from({ length: 6 }, (_, i) => <div key={i} className="animate-pulse rounded-3xl bg-fg/10" />)}
       </div>
     </section>
   );

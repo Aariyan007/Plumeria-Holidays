@@ -37,15 +37,15 @@ export function PackageFilter({ packages, types, initialType }:
   const filtered = region !== "all" || type !== "all";
 
   const seg = (active: boolean) =>
-    `flex-1 whitespace-nowrap rounded-full px-2 py-2.5 min-[360px]:px-3 text-sm font-semibold transition-colors sm:flex-none sm:px-5 ${active ? "bg-plum text-cream shadow-sm" : "text-ink/70 hover:text-ink"}`;
+    `flex-1 whitespace-nowrap rounded-full px-2 py-2.5 min-[360px]:px-3 text-sm font-semibold transition-colors sm:flex-none sm:px-5 ${active ? "bg-plum text-cream shadow-sm" : "text-fg/70 hover:text-fg"}`;
   const chip = (active: boolean) =>
-    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-yellow bg-yellow font-semibold text-ink" : "border-ink/15 hover:border-plum"}`;
+    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-yellow bg-yellow font-semibold text-ink" : "border-fg/15 hover:border-heading"}`;
   const n = (k: number) => <span className="ml-1.5 tabular-nums opacity-60">{k}</span>;
 
   return (
     <div>
-      <div className="flex flex-col gap-3 rounded-[1.75rem] border border-ink/10 bg-white/60 p-2 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex rounded-full bg-ink/5 p-1" role="group" aria-label="Region">
+      <div className="flex flex-col gap-3 rounded-[1.75rem] border border-fg/10 bg-card/60 p-2 backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex rounded-full bg-fg/5 p-1" role="group" aria-label="Region">
           {(["all", "domestic", "international"] as const).map((r) => (
             <button key={r} aria-pressed={region === r} className={seg(region === r)} onClick={() => change(() => setRegion(r))}>
               {r === "all" ? "All" : r === "domestic" ? "India" : "International"}{n(regionCount(r))}
@@ -63,9 +63,9 @@ export function PackageFilter({ packages, types, initialType }:
       </div>
 
       <div className="mt-6 flex items-center justify-between gap-4 text-sm" aria-live="polite">
-        <p className="text-ink/70">Showing <strong className="text-ink">{visible.length}</strong> {visible.length === 1 ? "itinerary" : "itineraries"}</p>
+        <p className="text-fg/70">Showing <strong className="text-fg">{visible.length}</strong> {visible.length === 1 ? "itinerary" : "itineraries"}</p>
         {filtered && (
-          <button onClick={() => change(() => { setRegion("all"); setType("all"); })} className="font-semibold text-pink-dark underline underline-offset-4">Clear filters</button>
+          <button onClick={() => change(() => { setRegion("all"); setType("all"); })} className="font-semibold text-accent underline underline-offset-4">Clear filters</button>
         )}
       </div>
 
@@ -73,9 +73,9 @@ export function PackageFilter({ packages, types, initialType }:
         {visible.map((p) => <PackageCard key={p.slug} pkg={p} />)}
       </div>
       {visible.length === 0 && (
-        <div className="mt-6 rounded-3xl border border-dashed border-ink/20 p-10 text-center">
+        <div className="mt-6 rounded-3xl border border-dashed border-fg/20 p-10 text-center">
           <p className="font-display text-2xl">Nothing here yet</p>
-          <p className="mt-2 text-ink/70">We plan custom trips too. <a href="/contact" className="font-semibold text-pink-dark underline underline-offset-4">Tell us where you&apos;d like to go.</a></p>
+          <p className="mt-2 text-fg/70">We plan custom trips too. <a href="/contact" className="font-semibold text-accent underline underline-offset-4">Tell us where you&apos;d like to go.</a></p>
         </div>
       )}
     </div>

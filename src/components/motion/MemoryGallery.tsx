@@ -55,7 +55,7 @@ export function MemoryGallery({ memories, tags, quotes }:
 
   const close = useCallback(() => setOpen(null), []);
   const chip = (active: boolean) =>
-    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-plum bg-plum text-cream" : "border-ink/20 hover:border-plum"}`;
+    `rounded-full border px-4 py-2 text-sm transition-colors ${active ? "border-plum bg-plum text-cream" : "border-fg/20 hover:border-heading"}`;
 
   return (
     <div ref={root}>

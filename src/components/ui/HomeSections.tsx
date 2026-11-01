@@ -56,8 +56,8 @@ export function Stats() {
       {stats.map((s) => (
         <div key={s.label}>
           {/* Sized so "25,000+" fits a half-width column down to 320px. */}
-          <p className="font-display text-[clamp(1.75rem,9vw,3rem)] text-plum xl:text-6xl 2xl:text-7xl"><CountUp to={s.to} suffix={s.suffix} /></p>
-          <p className="mt-2 text-xs uppercase tracking-[0.15em] text-ink/70 sm:text-sm sm:tracking-[0.2em]">{s.label}</p>
+          <p className="font-display text-[clamp(1.75rem,9vw,3rem)] text-heading xl:text-6xl 2xl:text-7xl"><CountUp to={s.to} suffix={s.suffix} /></p>
+          <p className="mt-2 text-xs uppercase tracking-[0.15em] text-fg/70 sm:text-sm sm:tracking-[0.2em]">{s.label}</p>
         </div>
       ))}
     </section>
@@ -70,9 +70,9 @@ export function Testimonials() {
       <SectionHeading kicker="Memories" title="Stories from the road" />
       <Reveal className="mt-14 grid gap-6 md:gap-8 lg:grid-cols-3">
         {getTestimonials().map((t) => (
-          <figure key={t.name} className="rounded-3xl bg-white/70 p-6 shadow-sm sm:p-8">
+          <figure key={t.name} className="rounded-3xl bg-card/70 p-6 shadow-sm sm:p-8">
             <blockquote className="font-display text-xl leading-snug">“{t.quote}”</blockquote>
-            <figcaption className="mt-6 text-sm"><strong>{t.name}</strong> · <span className="text-ink/70">{t.trip}</span></figcaption>
+            <figcaption className="mt-6 text-sm"><strong>{t.name}</strong> · <span className="text-fg/70">{t.trip}</span></figcaption>
           </figure>
         ))}
       </Reveal>
@@ -83,7 +83,7 @@ export function Testimonials() {
 export function CtaBand() {
   return (
     <section className="petal-gradient px-6 py-32 text-center md:px-16">
-      <h2 className="mx-auto max-w-4xl font-display text-[clamp(2.5rem,12vw,3rem)] leading-none text-ink md:text-7xl lg:text-8xl">Tell us the dream. We&apos;ll plan the rest.</h2>
+      <h2 className="mx-auto max-w-4xl font-display text-[clamp(2.5rem,12vw,3rem)] leading-none text-fg md:text-7xl lg:text-8xl">Tell us the dream. We&apos;ll plan the rest.</h2>
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Button href="/contact">Plan my trip</Button>
         <Button href={site.whatsapp} variant="ghost" external>WhatsApp us</Button>

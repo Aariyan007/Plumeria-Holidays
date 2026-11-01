@@ -39,17 +39,17 @@ function spanFor(i: number, n: number) {
 export default function DestinationsPage() {
   const all = getDestinations();
   const withItinerary = all.filter((d) => itineraryDays(d)).length;
-  const stat = "font-display text-3xl tracking-normal text-plum md:text-4xl";
+  const stat = "font-display text-3xl tracking-normal text-heading md:text-4xl";
 
   return (
     <main className="pb-24 pt-32 md:pt-40">
       <section className="px-6 md:px-16">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">Destinations</p>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Destinations</p>
         <div className="grid items-end gap-8 lg:grid-cols-[1.4fr_1fr]">
           <SplitReveal as="h1" immediate className="font-display text-[clamp(2.5rem,12vw,3rem)] leading-[1.02] md:text-6xl xl:text-7xl">Every journey starts with a place</SplitReveal>
-          <p className="max-w-md text-lg text-ink/75">From the backwaters outside our door in Kochi to Bali, Dubai and Europe. Pick a place and we&apos;ll plan the rest around you.</p>
+          <p className="max-w-md text-lg text-fg/75">From the backwaters outside our door in Kochi to Bali, Dubai and Europe. Pick a place and we&apos;ll plan the rest around you.</p>
         </div>
-        <dl className="mt-10 flex flex-wrap gap-x-6 gap-y-4 border-y border-ink/10 py-6 text-xs uppercase tracking-[0.2em] text-ink/60 sm:gap-x-10">
+        <dl className="mt-10 flex flex-wrap gap-x-6 gap-y-4 border-y border-fg/10 py-6 text-xs uppercase tracking-[0.2em] text-fg/60 sm:gap-x-10">
           <div className="flex items-baseline gap-2"><dt className="sr-only">Destinations</dt><dd className={stat}>{all.length}</dd> places</div>
           <div className="flex items-baseline gap-2"><dt className="sr-only">With a day-by-day itinerary</dt><dd className={stat}>{withItinerary}</dd> ready itineraries</div>
           <div className="flex items-baseline gap-2"><dt className="sr-only">Countries and regions abroad</dt><dd className={stat}>{getDestinations("international").length}</dd> abroad</div>
@@ -57,8 +57,8 @@ export default function DestinationsPage() {
         <nav aria-label="Jump to region" className="mt-6 flex flex-wrap gap-2">
           {regions.map((r) => (
             <a key={r.id} href={`#${r.id}`}
-              className="rounded-full border border-ink/15 px-5 py-2 text-sm transition-colors hover:border-plum hover:bg-plum hover:text-cream">
-              {r.label} <span className="text-ink/45">{getDestinations(r.region).length}</span>
+              className="rounded-full border border-fg/15 px-5 py-2 text-sm transition-colors hover:border-plum hover:bg-plum hover:text-cream">
+              {r.label} <span className="text-fg/45">{getDestinations(r.region).length}</span>
             </a>
           ))}
         </nav>
@@ -73,10 +73,10 @@ export default function DestinationsPage() {
           <section key={r.id} id={r.id} className="mt-24 scroll-mt-28 px-6 md:px-16" aria-labelledby={`${r.id}-title`}>
             <div className="mb-10 grid items-end gap-4 lg:grid-cols-[1.4fr_1fr]">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">{r.label}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-accent">{r.label}</p>
                 <h2 id={`${r.id}-title`} className="mt-3 font-display text-[clamp(2rem,9vw,2.5rem)] leading-[1.05] md:text-5xl">{r.title}</h2>
               </div>
-              <p className="max-w-md text-ink/70">{r.intro}</p>
+              <p className="max-w-md text-fg/70">{r.intro}</p>
             </div>
             <Reveal className="grid auto-rows-[13rem] grid-cols-2 gap-3 sm:auto-rows-[16rem] sm:gap-4 lg:grid-cols-4">
               {items.map(({ d, days }, i) => <DestinationCard key={d.slug} d={d} days={days} lead={i === 0} span={spanFor(i, items.length)} />)}

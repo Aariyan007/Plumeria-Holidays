@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Syne, Manrope } from "next/font/google";
 import { site } from "@/lib/site";
 import { Header } from "@/components/ui/Header";
@@ -23,13 +23,26 @@ export const metadata: Metadata = {
   openGraph: { siteName: site.name, type: "website" },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#FFF8F0" },
+    { media: "(prefers-color-scheme: dark)", color: "#170B12" },
+  ],
+};
+
+// Runs before paint so a saved or system dark preference never flashes the light theme.
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.classList.add("dark")}catch(e){}`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${syne.variable} ${manrope.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body suppressHydrationWarning>
         <JsonLd data={travelAgencyLd()} />
         <Preloader />
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-cream focus:p-3">Skip to content</a>
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-page focus:p-3">Skip to content</a>
         <SmoothScroll />
         <Cursor />
         <TransitionOverlay />
