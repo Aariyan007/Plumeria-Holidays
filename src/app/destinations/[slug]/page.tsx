@@ -35,15 +35,15 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
         <Reveal>
           {d.highlights.length > 0 && (
             <>
-              <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-pink-dark">Highlights</h2>
-              <ul className="mb-8 space-y-3 text-lg">{d.highlights.map((h) => <li key={h} className="border-b border-ink/10 pb-3">{h}</li>)}</ul>
+              <h2 className="mb-6 text-xs uppercase tracking-[0.3em] text-accent">Highlights</h2>
+              <ul className="mb-8 space-y-3 text-lg">{d.highlights.map((h) => <li key={h} className="border-b border-fg/10 pb-3">{h}</li>)}</ul>
             </>
           )}
-          {d.bestTime && <p className="mb-8 text-sm text-ink/70">Best time to visit: <strong className="text-ink">{d.bestTime}</strong></p>}
+          {d.bestTime && <p className="mb-8 text-sm text-fg/70">Best time to visit: <strong className="text-fg">{d.bestTime}</strong></p>}
           {pkgs.length === 0 && (
-            <div className="mb-8 rounded-3xl border border-ink/10 p-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-pink-dark">Itinerary on request</p>
-              <p className="mt-2 text-ink/75">Tell us your dates and who&apos;s travelling, and we&apos;ll send a day-by-day plan for {d.name}.</p>
+            <div className="mb-8 rounded-3xl border border-fg/10 p-6">
+              <p className="text-xs uppercase tracking-[0.3em] text-accent">Itinerary on request</p>
+              <p className="mt-2 text-fg/75">Tell us your dates and who&apos;s travelling, and we&apos;ll send a day-by-day plan for {d.name}.</p>
             </div>
           )}
           <Button href={`/contact?destination=${d.slug}`}>{pkgs.length ? `Plan a ${d.name} trip` : `Enquire about ${d.name}`}</Button>

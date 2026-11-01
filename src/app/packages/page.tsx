@@ -14,17 +14,17 @@ export default async function PackagesPage({ searchParams }: PageProps<"/package
   const packages = getPackages();
   const domestic = packages.filter((p) => p.region === "domestic").length;
   const onRequest = getDestinations().filter((d) => getPackagesForDestination(d.slug).length === 0);
-  const stat = "font-display text-3xl tracking-normal text-plum md:text-4xl";
+  const stat = "font-display text-3xl tracking-normal text-heading md:text-4xl";
 
   return (
     <main className="pb-24 pt-32 md:pt-40">
       <section className="px-6 md:px-16">
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-pink-dark">Packages</p>
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">Packages</p>
         <div className="grid items-end gap-8 lg:grid-cols-[1.4fr_1fr]">
           <SplitReveal as="h1" immediate className="font-display text-[clamp(2.5rem,12vw,3rem)] leading-[1.02] md:text-6xl xl:text-7xl">Ready-made journeys, made to bend</SplitReveal>
-          <p className="max-w-md text-lg text-ink/75">Day-by-day itineraries from Kochi. Tell us your dates and we&apos;ll tailor hotels, pace and budget around them.</p>
+          <p className="max-w-md text-lg text-fg/75">Day-by-day itineraries from Kochi. Tell us your dates and we&apos;ll tailor hotels, pace and budget around them.</p>
         </div>
-        <dl className="mt-10 flex flex-wrap gap-x-6 gap-y-4 sm:gap-x-10 border-y border-ink/10 py-6 text-xs uppercase tracking-[0.2em] text-ink/60">
+        <dl className="mt-10 flex flex-wrap gap-x-6 gap-y-4 sm:gap-x-10 border-y border-fg/10 py-6 text-xs uppercase tracking-[0.2em] text-fg/60">
           <div className="flex items-baseline gap-2"><dt className="sr-only">Itineraries</dt><dd className={stat}>{packages.length}</dd> itineraries</div>
           <div className="flex items-baseline gap-2"><dt className="sr-only">In India</dt><dd className={stat}>{domestic}</dd> in India</div>
           <div className="flex items-baseline gap-2"><dt className="sr-only">Abroad</dt><dd className={stat}>{packages.length - domestic}</dd> abroad</div>

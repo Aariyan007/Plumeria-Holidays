@@ -83,8 +83,9 @@ function rng(seed: number) {
 
 function makeSeeds(count: number) {
   const r = rng(count * 7919);
+  // x is a fraction of the viewport width (-0.6..0.6) so phones and desktops get the same spread.
   return Array.from({ length: count }, () => ({
-    x: (r() - 0.5) * 12, y: r() * 10 - 5, z: r() * -4,
+    x: (r() - 0.5) * 1.2, y: r() * 10 - 5, z: r() * -4,
     speed: 0.15 + r() * 0.35, spin: r() * 2, phase: r() * 6.28, scale: 0.25 + r() * 0.35,
   }));
 }
@@ -100,6 +101,9 @@ function Petals({ count }: { count: number }) {
   }, []);
   const seeds = useMemo(() => makeSeeds(count), [count]);
   const dummy = useMemo(() => new THREE.Object3D(), []);
+  // Touch screens have no hover: the pointer rests at the centre (or the last tap), which would pull every
+  // nearby petal into a clump in the middle. Only follow a real mouse.
+  const followPointer = useMemo(() => window.matchMedia("(hover: hover) and (pointer: fine)").matches, []);
 
   useEffect(() => {
     const c = new THREE.Color();
@@ -111,13 +115,16 @@ function Petals({ count }: { count: number }) {
     const t = clock.elapsedTime;
     const mx = (pointer.x * viewport.width) / 2, my = (pointer.y * viewport.height) / 2;
     const step = Math.min(dt, 0.05);
+    const w = viewport.width;
     seeds.forEach((s, i) => {
       s.y -= s.speed * step;
-      s.x += Math.sin(t * 0.6 + s.phase) * 0.004;
-      const dx = mx - s.x, dy = my - s.y;
-      if (dx * dx + dy * dy < 4) { s.x += dx * 0.01; s.y += dy * 0.01; }
-      if (s.y < -6) { s.y = 6; s.x = ((i * 0.618 + t) % 1 - 0.5) * 12; }
-      dummy.position.set(s.x, s.y, s.z);
+      s.x += (Math.sin(t * 0.6 + s.phase) * 0.004) / w;
+      if (followPointer) {
+        const dx = mx - s.x * w, dy = my - s.y;
+        if (dx * dx + dy * dy < 4) { s.x += (dx * 0.01) / w; s.y += dy * 0.01; }
+      }
+      if (s.y < -6) { s.y = 6; s.x = ((i * 0.618 + t) % 1 - 0.5) * 1.2; }
+      dummy.position.set(s.x * w, s.y, s.z);
       dummy.rotation.set(t * s.spin * 0.5, t * s.spin, s.phase);
       dummy.scale.setScalar(s.scale);
       dummy.updateMatrix();
