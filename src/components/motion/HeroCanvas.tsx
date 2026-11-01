@@ -101,8 +101,7 @@ function Petals({ count }: { count: number }) {
   }, []);
   const seeds = useMemo(() => makeSeeds(count), [count]);
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  // Touch screens have no hover: the pointer rests at the centre (or the last tap), which would pull every
-  // nearby petal into a clump in the middle. Only follow a real mouse.
+  // Touch screens have no hover: the pointer rests at the centre (or the last tap), so only react to a real mouse.
   const followPointer = useMemo(() => window.matchMedia("(hover: hover) and (pointer: fine)").matches, []);
 
   useEffect(() => {
@@ -119,9 +118,14 @@ function Petals({ count }: { count: number }) {
     seeds.forEach((s, i) => {
       s.y -= s.speed * step;
       s.x += (Math.sin(t * 0.6 + s.phase) * 0.004) / w;
+      // The cursor nudges nearby petals aside, mostly sideways so they slide past and keep falling.
+      // (Pulling them toward it trapped every passing petal in a clump wherever the mouse rested.)
       if (followPointer) {
-        const dx = mx - s.x * w, dy = my - s.y;
-        if (dx * dx + dy * dy < 4) { s.x += (dx * 0.01) / w; s.y += dy * 0.01; }
+        const dx = s.x * w - mx, dy = s.y - my, d2 = dx * dx + dy * dy;
+        if (d2 < 2.25 && d2 > 1e-4) {
+          const d = Math.sqrt(d2), f = ((1.5 - d) / 1.5) * 0.03 / d;
+          s.x += (dx * f) / w; s.y += dy * f * 0.25;
+        }
       }
       if (s.y < -6) { s.y = 6; s.x = ((i * 0.618 + t) % 1 - 0.5) * 1.2; }
       dummy.position.set(s.x * w, s.y, s.z);
